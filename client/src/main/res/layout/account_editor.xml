@@ -12,24 +12,24 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         />    
-	<ru.cubly.aceim.client.widgets.bottombar.BottomBar
+	<ru.cubly.aceim.app.widgets.bottombar.BottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
     	android:layout_height="@dimen/top_bottom_bar_height"
     	android:layout_alignParentLeft="true"
     	android:layout_alignParentRight="true"
     	android:layout_alignParentBottom="true">
-	    <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	    <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/cancel"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_close_clear_cancel"/>
-	    <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	    <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/save"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_save"/>
-	</ru.cubly.aceim.client.widgets.bottombar.BottomBar>
+	</ru.cubly.aceim.app.widgets.bottombar.BottomBar>
 	
 	<ScrollView 
         android:layout_width="match_parent"

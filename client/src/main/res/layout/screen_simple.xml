@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+    <ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout
         aceim:styleableBackground="screen_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent" 
         >
 
-        <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+        <ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout
             android:id="@+id/top_bar"
             aceim:styleableBackground="top_bar_background"
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:paddingTop="@dimen/top_bar_padding"
             >
 
-            <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+            <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
                 android:id="@+id/menu_button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -34,7 +34,7 @@
                 android:src="@drawable/menu_button_caption" 
                 android:visibility="gone"/>
             
-            <ru.cubly.aceim.client.widgets.pageselector.TabSelector
+            <ru.cubly.aceim.app.widgets.pageselector.TabSelector
                 android:id="@+id/tab_selector"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -53,7 +53,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/tab_selector"/>        
-        </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+        </ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout>
 
         <FrameLayout
             android:id="@+id/fragment_holder"
@@ -65,6 +65,6 @@
             android:layout_below="@id/top_bar"
             android:layout_centerVertical="true"
             android:layout_gravity="center" />
-    </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+    </ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout>
 
 </FrameLayout>

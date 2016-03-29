@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ru.cubly.aceim.client.widgets.bottombar.BottomBar
+    <ru.cubly.aceim.app.widgets.bottombar.BottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bottom_bar_height"
@@ -11,32 +11,32 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true" >
 
-        <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+        <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_delete" />
 
-        <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+        <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
             android:id="@+id/export"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_set_as" />
 
-        <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+        <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             android:visibility="gone" />
 
-        <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+        <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
             android:id="@+id/copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_agenda"
             android:visibility="gone" />
-    </ru.cubly.aceim.client.widgets.bottombar.BottomBar>
+    </ru.cubly.aceim.app.widgets.bottombar.BottomBar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refresh"

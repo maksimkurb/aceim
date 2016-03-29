@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Service message entity. 
  */
-public class ServiceMessage extends BaseMessage {
+public class ServiceMessage extends Message {
 	
 	/**
 	 * Does this message require accept or decline answer (like authorization request) ?

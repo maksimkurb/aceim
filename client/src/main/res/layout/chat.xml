@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ru.cubly.aceim.client.widgets.ResizeableRelativeLayout
+<ru.cubly.aceim.app.widgets.ResizeableRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aceim="http://schemas.android.com/apk/res-auto"
    	android:layout_width="match_parent"
@@ -12,7 +12,7 @@
        	android:layout_alignParentLeft="true"
     	android:layout_alignParentRight="true"
     	android:layout_alignParentBottom="true">
-    	<ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+    	<ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 			android:id="@+id/smiley"
             android:layout_width="wrap_content"
     		android:layout_height="match_parent"
@@ -20,7 +20,7 @@
     		android:layout_alignParentTop="true"
     		android:layout_alignParentBottom="true"
     		android:src="@drawable/ic_menu_emoticons"/>
-    	<ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+    	<ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 			android:id="@+id/send"
             android:layout_width="wrap_content"
     		android:layout_height="match_parent"
@@ -40,7 +40,7 @@
     		android:inputType="textCapSentences|textMultiLine"
     		android:imeOptions="flagNoExtractUi"
     		android:maxLength="2047"/>  
-    	<ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+    	<ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 			android:id="@+id/cancel"
             android:layout_width="wrap_content"
     		android:layout_height="match_parent"
@@ -49,7 +49,7 @@
     		android:layout_alignParentBottom="true"
     		android:src="@android:drawable/ic_menu_close_clear_cancel"
     		android:visibility="gone"/>   
-    	<ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+    	<ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 			android:id="@+id/copy"
             android:layout_width="wrap_content"
     		android:layout_height="match_parent"
@@ -58,7 +58,7 @@
     		android:layout_toLeftOf="@id/cancel"
     		android:src="@android:drawable/ic_menu_agenda"
     		android:visibility="gone"/>   
-    	<ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+    	<ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 			android:id="@+id/quote"
             android:layout_width="wrap_content"
     		android:layout_height="match_parent"
@@ -134,4 +134,4 @@
 	    android:layout_toLeftOf="@id/chat_buddies"
 	    android:stackFromBottom="true"
 	    android:divider="@android:color/transparent"/>
-</ru.cubly.aceim.client.widgets.ResizeableRelativeLayout>
+</ru.cubly.aceim.app.widgets.ResizeableRelativeLayout>

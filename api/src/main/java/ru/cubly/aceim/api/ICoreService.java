@@ -2,7 +2,7 @@ package ru.cubly.aceim.api;
 
 import java.util.List;
 
-import ru.cubly.aceim.api.dataentity.BaseMessage;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
 import ru.cubly.aceim.api.dataentity.ConnectionState;
@@ -50,7 +50,7 @@ public interface ICoreService {
 	 * A notification about new message to the core.
 	 * @param message a message
 	 */
-	void message(BaseMessage message);
+	void message(Message message);
 	
 	/**
 	 * A notification about buddies' online state changing (online status, status text etc). Should be sent only after connection is established ({@link ConnectionState#CONNECTED})

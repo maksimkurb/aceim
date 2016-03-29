@@ -1,6 +1,6 @@
 package ru.cubly.aceim.api;
 
-import ru.cubly.aceim.api.dataentity.BaseMessage;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.FileMessage;
 import ru.cubly.aceim.api.dataentity.ItemAction;
 import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
@@ -54,11 +54,11 @@ public interface IProtocol {
 	public void connect(ru.cubly.aceim.api.dataentity.OnlineInfo info);
 	
 	/**
-	 * BaseMessage sending request. Should be implemented synchronized, because of message ID definition.
+	 * Message sending request. Should be implemented synchronized, because of message ID definition.
 	 * @param message a message to send
 	 * @return message ID (managed by either protocol server or protocol plugin implementation)
 	 */
-	public long sendMessage(BaseMessage message);
+	public long sendMessage(Message message);
 	
 	/**
 	 * Icon request. Asynchronized. See {@link ICoreService#iconBitmap(String, byte[], String)} for callback.
@@ -71,7 +71,7 @@ public interface IProtocol {
 	 * @param message message to respond
 	 * @param accept answer
 	 */
-	public void messageResponse(BaseMessage message, boolean accept);
+	public void messageResponse(Message message, boolean accept);
 	
 	/**
 	 * File transfer cancel request.

@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/security_preferences" >
-        <ru.cubly.aceim.client.widgets.preference.EditablePasswordPreference
+        <ru.cubly.aceim.app.widgets.preference.EditablePasswordPreference
             android:key="MASTER_PASSWORD"
             android:title="@string/master_password" />
     </PreferenceCategory>
@@ -43,7 +43,7 @@
             android:key="SOUND_NOTIFICATION_TYPE"
             android:title="@string/sound_type" />
 
-       <ru.cubly.aceim.client.widgets.preference.SeekBarPreference
+       <ru.cubly.aceim.app.widgets.preference.SeekBarPreference
             android:defaultValue="30"
             android:key="SOUND_NOTIFICATION_VOLUME"
             
@@ -81,7 +81,7 @@
             android:defaultValue="@string/default_autoconnect"
             android:key="AUTO_CONNECT"
             android:title="@string/autoconnect" />
-        <ru.cubly.aceim.client.widgets.preference.SeekBarPreference
+        <ru.cubly.aceim.app.widgets.preference.SeekBarPreference
             android:defaultValue="@string/default_reconnection_attempts"
             android:max="10"
             android:stepSize="1"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingRight="1dp" >
 
-    <ru.cubly.aceim.client.themeable.widgets.StyleableFrameLayout
+    <ru.cubly.aceim.app.themeable.widgets.StyleableFrameLayout
         android:id="@+id/indicator"
         aceim:styleableBackground="top_bar_background"
         android:layout_width="match_parent"

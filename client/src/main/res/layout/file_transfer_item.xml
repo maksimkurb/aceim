@@ -4,7 +4,7 @@
     android:layout_height="@dimen/default_contact_list_plain_item_height"
     android:background="@android:drawable/menuitem_background">
     
-    <ru.cubly.aceim.client.themeable.widgets.StyleableImageView
+    <ru.cubly.aceim.app.themeable.widgets.StyleableImageView
         android:id="@+id/left_icon"
         android:layout_width="@dimen/default_contact_list_plain_item_height"
         android:layout_height="@dimen/default_contact_list_plain_item_height"
@@ -16,7 +16,7 @@
         android:paddingBottom="@dimen/default_padding"
         styleableWidth="grid_item_size"
         styleableHeight="grid_item_size"/>
-    <ru.cubly.aceim.client.themeable.widgets.StyleableImageView
+    <ru.cubly.aceim.app.themeable.widgets.StyleableImageView
         android:id="@+id/right_icon"
         android:layout_width="@dimen/default_contact_list_plain_item_height"
         android:layout_height="@dimen/default_contact_list_plain_item_height"

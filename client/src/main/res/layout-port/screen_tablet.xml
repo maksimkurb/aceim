@@ -5,7 +5,7 @@
    	android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ru.cubly.aceim.client.themeable.widgets.StyleableLinearLayout
+    <ru.cubly.aceim.app.themeable.widgets.StyleableLinearLayout
         aceim:styleableBackground="screen_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent" 
@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_weight="50" >
 
-            <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+            <ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout
             	aceim:styleableBackground="top_bar_background"
                 android:id="@+id/top_bar_left"
                 android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:paddingTop="4dp" >
 
-                <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+                <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
                     android:id="@+id/menu_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -38,7 +38,7 @@
                     android:src="@drawable/menu_button_caption"
                     android:visibility="gone" />
 
-                <ru.cubly.aceim.client.widgets.pageselector.TabSelector
+                <ru.cubly.aceim.app.widgets.pageselector.TabSelector
                     android:id="@+id/tab_selector_left"
                     style="@style/TabWidget"
                     android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
                     android:fadingEdge="none"
                     android:fadingEdgeLength="0px"
                     android:scrollbars="none" />
-            </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+            </ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout>
 
             <FrameLayout
                 android:id="@+id/fragment_holder_left"
@@ -68,7 +68,7 @@
             android:layout_height="match_parent"
             android:layout_weight="50" >
 
-            <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+            <ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout
             	aceim:styleableBackground="top_bar_background"
                 android:id="@+id/top_bar_right"
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 android:layout_alignParentTop="true"
                 android:paddingTop="4dp" >
 
-                <ru.cubly.aceim.client.widgets.pageselector.TabSelector
+                <ru.cubly.aceim.app.widgets.pageselector.TabSelector
                     android:id="@+id/tab_selector_right"
                     style="@style/TabWidget"
                     android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                     android:fadingEdge="none"
                     android:fadingEdgeLength="0px"
                     android:scrollbars="none" />
-            </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+            </ru.cubly.aceim.app.themeable.widgets.StyleableRelativeLayout>
 
             <FrameLayout
                 android:id="@+id/fragment_holder_right"
@@ -102,5 +102,5 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"/>
         </RelativeLayout>
-    </ru.cubly.aceim.client.themeable.widgets.StyleableLinearLayout>
+    </ru.cubly.aceim.app.themeable.widgets.StyleableLinearLayout>
 </FrameLayout>

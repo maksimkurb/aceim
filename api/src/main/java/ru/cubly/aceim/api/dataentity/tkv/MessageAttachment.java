@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * BaseMessage attachment {@link TKV}
+ * Message attachment {@link TKV}
  */
 public class MessageAttachment extends TKV {
 	

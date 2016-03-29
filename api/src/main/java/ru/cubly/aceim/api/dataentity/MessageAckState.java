@@ -4,16 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * BaseMessage acknowledgement state.
+ * Message acknowledgement state.
  */
 public enum MessageAckState implements Parcelable {
 	/**
-	 * BaseMessage reached server.
+	 * Message reached server.
 	 */
 	SERVER_ACK,
 	
 	/**
-	 * BaseMessage reached recipient.
+	 * Message reached recipient.
 	 */
 	RECIPIENT_ACK,
 	

@@ -3,7 +3,7 @@ package ru.cubly.aceim.api.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.cubly.aceim.api.dataentity.BaseMessage;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
 import ru.cubly.aceim.api.dataentity.ItemAction;
@@ -65,7 +65,7 @@ public abstract class ProtocolService<T extends AccountService> extends Service 
 		}
 		
 		@Override
-		public long sendMessage(BaseMessage message) throws RemoteException {
+		public long sendMessage(Message message) throws RemoteException {
 			T service = findAccountServiceById(message.getServiceId());
 			return service.getProtocol().sendMessage(message);
 		}
@@ -101,7 +101,7 @@ public abstract class ProtocolService<T extends AccountService> extends Service 
 		}
 		
 		@Override
-		public void messageResponse(BaseMessage message, boolean accept) throws RemoteException {
+		public void messageResponse(Message message, boolean accept) throws RemoteException {
 			T service = findAccountServiceById(message.getServiceId());
 			service.getProtocol().messageResponse(message, accept);
 		}

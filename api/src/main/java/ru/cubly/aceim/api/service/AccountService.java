@@ -17,7 +17,7 @@ import ru.cubly.aceim.api.dataentity.ConnectionState;
 import ru.cubly.aceim.api.dataentity.FileProgress;
 import ru.cubly.aceim.api.dataentity.InputFormFeature;
 import ru.cubly.aceim.api.dataentity.ItemAction;
-import ru.cubly.aceim.api.dataentity.BaseMessage;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.MessageAckState;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;
 import ru.cubly.aceim.api.dataentity.PersonalInfo;
@@ -151,7 +151,7 @@ public abstract class AccountService {
 		}
 		
 		@Override
-		public void message(BaseMessage message) {
+		public void message(Message message) {
 			try {
 				callback.message(message);
 			} catch (RemoteException e) { 

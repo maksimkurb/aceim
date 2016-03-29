@@ -3,7 +3,7 @@ package ru.cubly.aceim.api.service;
 import ru.cubly.aceim.api.dataentity.ConnectionState;
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
-import ru.cubly.aceim.api.dataentity.BaseMessage;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.FileMessage;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;
 import ru.cubly.aceim.api.dataentity.PersonalInfo;
@@ -17,7 +17,7 @@ interface ICoreProtocolCallback {
 	void connectionStateChanged(byte serviceId, in ConnectionState connState, int extraParameter);
 	void iconBitmap(byte serviceId, String ownerUid, in byte[] data, String hash);
 	void buddyListUpdated(byte serviceId, in List<BuddyGroup> buddyList);
-	void message(in BaseMessage message);
+	void message(in ru.cubly.aceim.api.dataentity.Message message);
 	void buddyStateChanged(in List<OnlineInfo> infos);
 	void notification(byte serviceId, String message);
 	void accountStateChanged(in OnlineInfo info);

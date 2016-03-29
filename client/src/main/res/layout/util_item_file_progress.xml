@@ -3,7 +3,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/default_padding">
-        <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+        <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
             android:id="@+id/button"
             android:layout_width="@dimen/top_bottom_bar_height"
     		android:layout_height="@dimen/top_bottom_bar_height"

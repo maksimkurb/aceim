@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "ru.cubly.aceim.client"
+        applicationId "ru.cubly.aceim.app"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -19,12 +19,19 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
     compile project(':api')
     compile project(':resources')
+
+    compile 'com.github.maksimkurb:expandablegrid:-SNAPSHOT'
+    compile 'com.googlecode.android-query:android-query:0.25.9'
 
     compile 'com.android.support:appcompat-v7:23.2.1'
 }

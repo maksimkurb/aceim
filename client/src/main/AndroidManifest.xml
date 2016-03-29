@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="ru.cubly.aceim.client"
+	package="ru.cubly.aceim.app"
 	android:installLocation="auto">
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -21,9 +21,9 @@
 	<application android:theme="@style/Ace.IM.Theme"
 	    	android:icon="@drawable/ic_launcher"
 	    	android:label="@string/app_name"
-	    	android:name="aceim.api.application.AceIMBaseApplication"
+	    	android:name="ru.cubly.aceim.api.application.AceIMBaseApplication"
 	    	android:allowBackup="true">
-		<activity android:name="ru.cubly.aceim.client.MainActivity"
+		<activity android:name="ru.cubly.aceim.app.MainActivity"
 			android:process=":ui"
 			android:label="@string/app_name"
 			android:launchMode="singleTask"
@@ -33,20 +33,20 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="ru.cubly.aceim.client.preference.OptionsActivity"
-		    android:parentActivityName="ru.cubly.aceim.client.MainActivity"
+		<activity android:name="ru.cubly.aceim.app.preference.OptionsActivity"
+		    android:parentActivityName="ru.cubly.aceim.app.MainActivity"
 		    android:exported="false"
 		    android:noHistory="true"
 		    android:stateNotNeeded="true"
 		    android:launchMode="standard">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value="ru.cubly.aceim.client.MainActivity" />
+				android:value="ru.cubly.aceim.app.MainActivity" />
 		</activity>
-		<service android:name=".service.CoreService"
+		<service android:name="ru.cubly.aceim.app.service.CoreService"
 		    android:exported="false">
 			<intent-filter>
-				<action android:name="ru.cubly.aceim.client.service.CoreService" />
+				<action android:name="ru.cubly.aceim.app.service.CoreService" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</service>

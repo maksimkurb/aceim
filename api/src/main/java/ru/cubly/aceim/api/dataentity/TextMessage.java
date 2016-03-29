@@ -11,7 +11,7 @@ import android.os.Parcelable;
 /**
  * Text message/
  */
-public class TextMessage extends BaseMessage {
+public class TextMessage extends Message {
 	
 	/**
 	 * List of message attachments. Thread-safe.

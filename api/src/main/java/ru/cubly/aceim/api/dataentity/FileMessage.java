@@ -12,7 +12,7 @@ import android.os.Parcelable;
  * @author Sergiy Plygun
  *
  */
-public class FileMessage extends BaseMessage {
+public class FileMessage extends Message {
 	
 	/**
 	 * List of files being transferred, read-only.

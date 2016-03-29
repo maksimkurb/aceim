@@ -3,49 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
     >
-    <ru.cubly.aceim.client.widgets.bottombar.BottomBar
+    <ru.cubly.aceim.app.widgets.bottombar.BottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
     	android:layout_height="@dimen/top_bottom_bar_height"
     	android:layout_alignParentLeft="true"
     	android:layout_alignParentRight="true"
     	android:layout_alignParentBottom="true">
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/add"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_add"/>
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/remove"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_delete"/>
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/rename"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_edit"/>
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/move"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/ic_menu_friendslist"/>
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/join"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/ic_menu_login"/>
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/leave"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/ic_menu_logout"/>  
-	   <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+	   <ru.cubly.aceim.app.widgets.bottombar.BottomBarButton
 	        android:id="@+id/copy"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@android:drawable/ic_menu_agenda"/>	    
-	</ru.cubly.aceim.client.widgets.bottombar.BottomBar>
+	</ru.cubly.aceim.app.widgets.bottombar.BottomBar>
 	<ScrollView 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
