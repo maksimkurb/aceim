@@ -1,1 +1,1 @@
-include ':client', ':api', ':resources'
+include ':app', ':api', ':resources'
