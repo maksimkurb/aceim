@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aceim="http://schemas.android.com/apk/res-auto"
+    xmlns:aceimres="http://schemas.android.com/apk/lib/aceim.res.Ace.IM.Theme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+        aceim:styleableBackground="screen_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        >
+
+        <ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout
+            android:id="@+id/top_bar"
+            aceim:styleableBackground="top_bar_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_bottom_bar_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="@dimen/top_bar_padding"
+            >
+
+            <ru.cubly.aceim.client.widgets.bottombar.BottomBarButton
+                android:id="@+id/menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"                
+                android:scaleType="center"
+                android:src="@drawable/menu_button_caption" 
+                android:visibility="gone"/>
+            
+            <ru.cubly.aceim.client.widgets.pageselector.TabSelector
+                android:id="@+id/tab_selector"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@id/menu_button"
+                android:fadingEdge="none"
+                android:fadingEdgeLength="0px"
+                android:scrollbars="none" 
+                style="@style/TabWidget"/>    
+            <ImageView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tab_selected_bar_right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/tab_selector"/>        
+        </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/top_bar"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center" />
+    </ru.cubly.aceim.client.themeable.widgets.StyleableRelativeLayout>
+
+</FrameLayout>
