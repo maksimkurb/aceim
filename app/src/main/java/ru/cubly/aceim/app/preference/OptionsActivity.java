@@ -30,7 +30,7 @@ public class OptionsActivity extends AceIMActivity {
         
         View content = findViewById(android.R.id.content);
         ViewUtils.setWallpaperMode(this, content);
-        content.setBackgroundResource(R.color.transparent);
+        content.setBackgroundResource(R.color.background);
     }
 	
 	@Override

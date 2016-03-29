@@ -3,7 +3,7 @@
     <item name="selection_marker" type="drawable">@android:drawable/menuitem_background</item>
     
     <style name="TabWidget" parent="@android:style/Widget.TabWidget"/>
-    <color name="transparent" >#77000000</color>
+    <color name="background">#ffffff</color>
     
     <color name="chat_message_sender_color_service">#ff00dd00</color>
     <color name="chat_message_sender_color_sent">#ff9999ff</color>

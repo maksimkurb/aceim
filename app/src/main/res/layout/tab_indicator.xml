@@ -17,7 +17,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:maxWidth="180dp"
-        android:textStyle="bold"
         android:textColor="@color/tab_selector_color"
     />
 

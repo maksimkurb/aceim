@@ -167,7 +167,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		}
 		
 		if (holder.getMessage().getMessageId() == 0) {
-			v.setBackgroundDrawable(parent.getContext().getResources().getDrawable(R.color.transparent));
+			v.setBackgroundDrawable(parent.getContext().getResources().getDrawable(R.color.background));
 		} else {
 			v.setBackgroundColor(0);
 		}

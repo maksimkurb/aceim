@@ -156,7 +156,7 @@ public class History extends Page implements IHasMessages, IHasBuddy {
 		mMessages.setOnItemLongClickListener(mItemLongClickListener);
 		
 		mSwiper.setOnRefreshListener(mRefreshListener);
-		mSwiper.setColorScheme(R.color.chat_message_sender_color_sent, R.color.chat_message_sender_color_received, R.color.chat_message_sender_color_service, R.color.transparent);
+		mSwiper.setColorSchemeResources(R.color.chat_message_sender_color_sent, R.color.chat_message_sender_color_received, R.color.chat_message_sender_color_service, R.color.background);
 		
 		mExportBtn.setVisibility(View.GONE);
 		

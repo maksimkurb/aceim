@@ -6,7 +6,7 @@
     android:layout_marginLeft="@dimen/default_padding"
     android:layout_marginRight="@dimen/default_padding"
     android:layout_marginTop="@dimen/default_padding"
-    android:background="@color/transparent">
+    android:background="@color/background">
     <ImageView android:id="@+id/icon"
         android:layout_width="@dimen/chat_buddy_status_height"
         android:layout_height="@dimen/chat_buddy_status_height"
