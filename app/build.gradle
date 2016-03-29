@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ru.cubly.aceim.app"
-        minSdkVersion 14
+        minSdkVersion 3
         targetSdkVersion 23
         versionCode 1
         versionName "0.1"
