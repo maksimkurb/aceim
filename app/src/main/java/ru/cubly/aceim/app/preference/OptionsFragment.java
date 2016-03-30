@@ -3,12 +3,6 @@
  */
 package ru.cubly.aceim.app.preference;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.page.Page;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +21,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.page.Page;
 
 abstract class OptionsFragment extends Page implements OnPreferenceChangeListener, OnPreferenceClickListener {
     

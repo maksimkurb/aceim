@@ -1,5 +1,9 @@
 package ru.cubly.aceim.app.utils;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -8,9 +12,6 @@ import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.Constants;
 import ru.cubly.aceim.app.Constants.OptionKey;
 import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 
 public class OptionsReceiver extends BroadcastReceiver {
 	

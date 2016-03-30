@@ -1,6 +1,5 @@
 package ru.cubly.aceim.app.widgets.preference;
 
-import ru.cubly.aceim.app.R;
 import android.content.Context;
 import android.preference.EditTextPreference;
 import android.text.InputType;
@@ -12,6 +11,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import ru.cubly.aceim.app.R;
 
 public class EditablePasswordPreference extends EditTextPreference {
 

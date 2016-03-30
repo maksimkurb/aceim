@@ -1,5 +1,16 @@
 package ru.cubly.aceim.app.page;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+
 import java.lang.reflect.Constructor;
 import java.util.List;
 
@@ -11,19 +22,11 @@ import ru.cubly.aceim.api.dataentity.PersonalInfo;
 import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.ProtocolResources;
 import ru.cubly.aceim.app.dataentity.listeners.IHasAccount;
 import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
-import ru.cubly.aceim.app.screen.Screen;
-import ru.cubly.aceim.app.utils.LinqRules.AccountByProtocolUidLinqRule;
-import ru.cubly.aceim.app.utils.LinqRules.ChatLinqRule;
-import ru.cubly.aceim.app.utils.LinqRules.PageIdLinqRule;
-import ru.cubly.aceim.app.utils.LinqRules.PersonalInfoLinqRule;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.utils.linq.KindaLinq;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
 import ru.cubly.aceim.app.page.about.About;
 import ru.cubly.aceim.app.page.accounteditor.AccountEditor;
 import ru.cubly.aceim.app.page.accounts.Accounts;
@@ -38,20 +41,18 @@ import ru.cubly.aceim.app.page.other.Splash;
 import ru.cubly.aceim.app.page.personalinfo.PersonalInfoPage;
 import ru.cubly.aceim.app.page.transfers.FileTransfers;
 import ru.cubly.aceim.app.page.utils.Utilities;
+import ru.cubly.aceim.app.screen.Screen;
+import ru.cubly.aceim.app.utils.LinqRules.AccountByProtocolUidLinqRule;
+import ru.cubly.aceim.app.utils.LinqRules.ChatLinqRule;
+import ru.cubly.aceim.app.utils.LinqRules.PageIdLinqRule;
+import ru.cubly.aceim.app.utils.LinqRules.PersonalInfoLinqRule;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.utils.linq.KindaLinq;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
 import ru.cubly.aceim.app.widgets.bottombar.BottomBarButtonInfo;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 
 public abstract class Page extends Fragment {
-	private MainActivity mActivity;
+	private OldMainActivity mActivity;
 		
 	private View cachedView = null;
 	private Bundle cachedBundle = null;
@@ -112,7 +113,7 @@ public abstract class Page extends Fragment {
 		screen.addPage(new MasterPassword(), true);		
 	}
 	
-	public static void getContactListPage(MainActivity activity, Account account) {
+	public static void getContactListPage(OldMainActivity activity, Account account) {
 		Screen screen = activity.getScreen();
 		Page page = getPage(screen, new PageIdLinqRule(getPageIdForEntityWithId(ContactList.class, account)));
 		if (page == null) {
@@ -178,8 +179,8 @@ public abstract class Page extends Fragment {
 		}		
 	}	
 	
-	public static void getInputFormPage(MainActivity mainActivity, InputFormFeature iff, OnlineInfo info, ProtocolResources resources) {
-		Screen screen = mainActivity.getScreen();
+	public static void getInputFormPage(OldMainActivity oldMainActivity, InputFormFeature iff, OnlineInfo info, ProtocolResources resources) {
+		Screen screen = oldMainActivity.getScreen();
 		Page page = getPage(screen, new PageIdLinqRule(getPageIdForInputFormPage(iff, info)));
 		
 		if (page == null) {
@@ -244,7 +245,7 @@ public abstract class Page extends Fragment {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static void recoverPageById(List<Account> accounts, String pageId, Bundle savedState, MainActivity mainActivity) {
+	public static void recoverPageById(List<Account> accounts, String pageId, Bundle savedState, OldMainActivity oldMainActivity) {
 		Logger.log("Recovering page " + pageId, LoggerLevel.VERBOSE);
 		
 		String[] pageIdParts = pageId.split(Character.toString(ApiConstants.GENERAL_DIVIDER));
@@ -281,7 +282,7 @@ public abstract class Page extends Fragment {
 			} else if (param == ProtocolResources.class) {
 				if (a == null) return;
 				
-				ProtocolResources res = mainActivity.getProtocolResourcesForAccount(a);				
+				ProtocolResources res = oldMainActivity.getProtocolResourcesForAccount(a);
 				if (res == null) return;
 				
 				args[i] = res;
@@ -297,17 +298,17 @@ public abstract class Page extends Fragment {
 		
 		page.cachedBundle = savedState;
 		
-		mainActivity.getScreen().addPage(page, false);
+		oldMainActivity.getScreen().addPage(page, false);
 	}
 	
-	public void setMainActivity(MainActivity activity){
+	public void setMainActivity(OldMainActivity activity){
 		this.mActivity = activity;
 	}
 	
-	protected MainActivity getMainActivity() {
+	protected OldMainActivity getMainActivity() {
 		if (mActivity == null) {
 			try {
-				while ((mActivity = (MainActivity) getActivity()) == null) {
+				while ((mActivity = (OldMainActivity) getActivity()) == null) {
 					Thread.sleep(100);
 				}
 			} catch (InterruptedException e) {

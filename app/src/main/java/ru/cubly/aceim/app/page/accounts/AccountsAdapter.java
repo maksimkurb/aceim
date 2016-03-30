@@ -1,22 +1,5 @@
 package ru.cubly.aceim.app.page.accounts;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -33,12 +16,30 @@ import android.widget.ImageButton;
 
 import com.androidquery.AQuery;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.utils.DialogUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+
 public class AccountsAdapter extends ArrayAdapter<Account> {
 
 	private final Map<Account, AccountClickListener> mAccounts = new HashMap<Account, AccountClickListener>();
 
-	public AccountsAdapter(MainActivity activity, List<Account> objects) {
-		super(activity, R.layout.account_item, R.id.label_username, objects);
+	public AccountsAdapter(OldMainActivity activity, List<Account> objects) {
+		super(activity, R.layout.item_account, R.id.label_username, objects);
 
 		fillClickListeners(objects);
 	}
@@ -48,7 +49,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 			return;
 		}
 		
-		MainActivity activity = (MainActivity) getContext();
+		OldMainActivity activity = (OldMainActivity) getContext();
 
 		for (Account acc : objects) {
 			
@@ -117,7 +118,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 
 		@Override
 		public void onClick(View v) {
-			final MainActivity activity = (MainActivity) getContext();
+			final OldMainActivity activity = (OldMainActivity) getContext();
 			if (v instanceof ImageButton) {
 				if (v.getId() == R.id.btn_delete) {
 					AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -172,7 +173,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 	@Override
 	public void add(Account acc){
 		super.add(acc);
-		AccountClickListener l = new AccountClickListener(acc, ((MainActivity)getContext()).getProtocolResourcesForAccount(acc));
+		AccountClickListener l = new AccountClickListener(acc, ((OldMainActivity)getContext()).getProtocolResourcesForAccount(acc));
 		mAccounts.put(acc, l);
 	}
 	
@@ -180,7 +181,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 	public void addAll(Collection<? extends Account> collection){
 		for (Account acc : collection) {
 			add(acc);
-			AccountClickListener l = new AccountClickListener(acc, ((MainActivity)getContext()).getProtocolResourcesForAccount(acc));
+			AccountClickListener l = new AccountClickListener(acc, ((OldMainActivity)getContext()).getProtocolResourcesForAccount(acc));
 			mAccounts.put(acc, l);
 		}
 	}
@@ -189,7 +190,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 	public void addAll(Account ... items){
 		for (Account acc : items) {
 			add(acc);
-			AccountClickListener l = new AccountClickListener(acc, ((MainActivity)getContext()).getProtocolResourcesForAccount(acc));
+			AccountClickListener l = new AccountClickListener(acc, ((OldMainActivity)getContext()).getProtocolResourcesForAccount(acc));
 			mAccounts.put(acc, l);
 		}
 	}
@@ -197,7 +198,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 	@Override
 	public void insert(Account acc, int index) {
 		super.insert(acc, index);
-		AccountClickListener l = new AccountClickListener(acc, ((MainActivity)getContext()).getProtocolResourcesForAccount(acc));
+		AccountClickListener l = new AccountClickListener(acc, ((OldMainActivity)getContext()).getProtocolResourcesForAccount(acc));
 		mAccounts.put(acc, l);
 	}
 	

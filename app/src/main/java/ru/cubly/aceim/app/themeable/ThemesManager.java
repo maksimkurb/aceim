@@ -1,5 +1,11 @@
 package ru.cubly.aceim.app.themeable;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +16,6 @@ import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.Constants;
 import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
 import ru.cubly.aceim.app.utils.PluginsManager;
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 
 public class ThemesManager extends PluginsManager {
 	

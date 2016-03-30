@@ -1,21 +1,5 @@
 package ru.cubly.aceim.app.page.personalinfo;
 
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.api.dataentity.PersonalInfo;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
-import ru.cubly.aceim.api.dataentity.ToggleFeature;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -29,6 +13,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.androidquery.AQuery;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.api.dataentity.PersonalInfo;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
+import ru.cubly.aceim.api.dataentity.ToggleFeature;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.utils.DialogUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public class PersonalInfoPage extends Page {
 	
@@ -58,7 +59,7 @@ public class PersonalInfoPage extends Page {
 	
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.personal_info, null);
+		View view = inflater.inflate(R.layout.page_personal_info, null);
 		
 		mCopyAllBtn = (BottomBarButton) view.findViewById(R.id.copy);
 		mAddBtn = (BottomBarButton) view.findViewById(R.id.add);
@@ -176,15 +177,15 @@ public class PersonalInfoPage extends Page {
 			}
 		});
 		
-		/*MultiChatRoom chat = new MultiChatRoom(mInfo.getProtocolUid(), a.getProtocolUid(), a.getProtocolName(), mInfo.getServiceId());
-		chat.setName(mInfo.getProperties().getString(PersonalInfo.INFO_NICK));*/		
+		/*MultiChatRoom page_chat = new MultiChatRoom(mInfo.getProtocolUid(), a.getProtocolUid(), a.getProtocolName(), mInfo.getServiceId());
+		page_chat.setName(mInfo.getProperties().getString(PersonalInfo.INFO_NICK));*/
 		
 		LinearLayout container = (LinearLayout) view.findViewById(R.id.container);
 		
 		for (String key : mInfo.getProperties().keySet()) {
 			if (key.equals(PersonalInfo.INFO_NICK)) continue; 
 			
-			View item = inflater.inflate(R.layout.personal_info_item, null);
+			View item = inflater.inflate(R.layout.item_personal_info, null);
 			
 			AQuery aqi = new AQuery(item);
 			
@@ -209,7 +210,7 @@ public class PersonalInfoPage extends Page {
 						continue;
 					}
 					
-					View item = inflater.inflate(R.layout.personal_info_item, null);
+					View item = inflater.inflate(R.layout.item_personal_info, null);
 					
 					AQuery aqi = new AQuery(item);
 					

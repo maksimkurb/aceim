@@ -1,9 +1,5 @@
 package ru.cubly.aceim.app.preference;
 
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -11,6 +7,11 @@ import android.os.Parcelable;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.support.v4.content.LocalBroadcastManager;
+
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
 
 public class AccountOptions extends OptionsPage {
 	

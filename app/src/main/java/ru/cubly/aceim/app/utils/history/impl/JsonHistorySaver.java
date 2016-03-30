@@ -1,5 +1,11 @@
 package ru.cubly.aceim.app.utils.history.impl;
 
+import android.content.Context;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,10 +22,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.FileInfo;
 import ru.cubly.aceim.api.dataentity.FileMessage;
@@ -31,7 +33,6 @@ import ru.cubly.aceim.api.dataentity.tkv.MessageAttachment.MessageAttachmentType
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.utils.history.HistorySaver;
-import android.content.Context;
 
 public final class JsonHistorySaver implements HistorySaver {
 

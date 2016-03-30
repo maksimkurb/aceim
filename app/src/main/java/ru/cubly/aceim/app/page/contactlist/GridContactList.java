@@ -1,6 +1,11 @@
 package ru.cubly.aceim.app.page.contactlist;
 
-import ru.cubly.expandablegrid.ExpandableGridView;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.ConnectionState;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;
@@ -10,11 +15,7 @@ import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.ProtocolResources;
 import ru.cubly.aceim.app.utils.ViewUtils;
 import ru.cubly.aceim.app.widgets.bottombar.ContactListBottomBar;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import ru.cubly.expandablegrid.ExpandableGridView;
 
 public final class GridContactList extends ContactList {
 	
@@ -41,7 +42,7 @@ public final class GridContactList extends ContactList {
 			initVariables((AceIMActivity)inflater.getContext());
 		}
 		
-		View view = inflater.inflate(R.layout.grid_contact_list, group, false);
+		View view = inflater.inflate(R.layout.page_contact_list_grid, group, false);
 		mGridView = (ExpandableGridView) view.findViewById(R.id.grid);
 		mGridView.setAdapter(getAdapter());
 		mGridView.setColumnWidth(mGridItemSize);

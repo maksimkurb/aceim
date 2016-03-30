@@ -1,7 +1,5 @@
 package ru.cubly.aceim.app;
 
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.themeable.ThemesManager;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,6 +11,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.themeable.ThemesManager;
 
 public abstract class AceIMActivity extends FragmentActivity {
 	

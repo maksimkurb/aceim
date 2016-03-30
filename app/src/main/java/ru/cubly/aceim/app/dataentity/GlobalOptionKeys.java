@@ -1,8 +1,9 @@
 package ru.cubly.aceim.app.dataentity;
 
-import ru.cubly.aceim.app.Constants.OptionKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.app.Constants.OptionKey;
 
 public enum GlobalOptionKeys implements OptionKey, Parcelable {
 	SCREEN_TYPE,

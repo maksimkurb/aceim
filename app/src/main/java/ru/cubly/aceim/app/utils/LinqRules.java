@@ -13,12 +13,12 @@ import ru.cubly.aceim.app.dataentity.listeners.IHasAccountList;
 import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
 import ru.cubly.aceim.app.dataentity.listeners.IHasFileProgress;
 import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
 import ru.cubly.aceim.app.page.Page;
 import ru.cubly.aceim.app.page.chat.Chat;
 import ru.cubly.aceim.app.page.history.History;
 import ru.cubly.aceim.app.page.personalinfo.PersonalInfoPage;
 import ru.cubly.aceim.app.page.transfers.FileTransfers;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
 
 public class LinqRules {
 	

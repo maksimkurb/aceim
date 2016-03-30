@@ -1,6 +1,5 @@
 package ru.cubly.aceim.app.widgets.preference;
 
-import ru.cubly.aceim.api.utils.Logger;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
@@ -14,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import ru.cubly.aceim.api.utils.Logger;
 
 public class SeekBarPreference extends Preference implements OnSeekBarChangeListener {
 	

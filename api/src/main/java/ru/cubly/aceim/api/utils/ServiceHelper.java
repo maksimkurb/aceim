@@ -1,10 +1,10 @@
 package ru.cubly.aceim.api.utils;
 
-import java.lang.reflect.Method;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
+
+import java.lang.reflect.Method;
 
 /**
  * This helper deals between several versions of making service

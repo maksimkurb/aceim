@@ -1,5 +1,9 @@
 package ru.cubly.aceim.api.service;
 
+import android.content.Context;
+import android.os.DeadObjectException;
+import android.os.RemoteException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,9 +27,6 @@ import ru.cubly.aceim.api.dataentity.OnlineInfo;
 import ru.cubly.aceim.api.dataentity.PersonalInfo;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import android.content.Context;
-import android.os.DeadObjectException;
-import android.os.RemoteException;
 
 /**
  * Account service base, contains all inner-account logic. Should be nested in protocol implementation.

@@ -1,8 +1,9 @@
 package ru.cubly.aceim.api.dataentity;
 
-import ru.cubly.aceim.api.service.ApiConstants;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.service.ApiConstants;
 
 /**
  * An {@link InputFormFeature} which acts only as a marker for core ({@link ApiConstants#FEATURE_BUDDY_MANAGEMENT}, {@link ApiConstants#FEATURE_FILE_TRANSFER} etc).

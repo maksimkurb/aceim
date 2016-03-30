@@ -1,21 +1,5 @@
 package ru.cubly.aceim.app.screen.tablet;
 
-import static ru.cubly.aceim.app.utils.linq.KindaLinq.from;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.screen.Screen;
-import ru.cubly.aceim.app.utils.PageManager;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.contactlist.ContactList;
-import ru.cubly.aceim.app.page.other.Splash;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
-import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
-import ru.cubly.aceim.app.widgets.pageselector.TabSelector;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +10,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.contactlist.ContactList;
+import ru.cubly.aceim.app.page.other.Splash;
+import ru.cubly.aceim.app.screen.Screen;
+import ru.cubly.aceim.app.utils.PageManager;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
+import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
+import ru.cubly.aceim.app.widgets.pageselector.TabSelector;
+
+import static ru.cubly.aceim.app.utils.linq.KindaLinq.from;
 
 public class TabletScreen extends Screen {
 
@@ -62,7 +63,7 @@ public class TabletScreen extends Screen {
 		}
 	};
 	
-	public TabletScreen(MainActivity activity) {
+	public TabletScreen(OldMainActivity activity) {
 		super(activity);
 		LayoutInflater.from(activity).inflate(R.layout.screen_tablet, this);
 		

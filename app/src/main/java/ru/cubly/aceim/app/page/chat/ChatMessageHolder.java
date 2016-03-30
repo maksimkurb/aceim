@@ -1,12 +1,13 @@
 package ru.cubly.aceim.app.page.chat;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.widget.ArrayAdapter;
+
 import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.MessageAckState;
 import ru.cubly.aceim.api.dataentity.tkv.MessageAttachment;
 import ru.cubly.aceim.api.utils.Logger;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.widget.ArrayAdapter;
 
 public final class ChatMessageHolder implements Parcelable{
 

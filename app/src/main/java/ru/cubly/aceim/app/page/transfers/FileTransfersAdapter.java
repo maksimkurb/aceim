@@ -1,11 +1,5 @@
 package ru.cubly.aceim.app.page.transfers;
 
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.FileProgress;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.FileTransfer;
-import ru.cubly.aceim.app.utils.ViewUtils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -16,6 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.FileProgress;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.FileTransfer;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public class FileTransfersAdapter extends ArrayAdapter<FileTransfer> {
 

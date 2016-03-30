@@ -1,5 +1,10 @@
 package ru.cubly.aceim.app.service;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.os.RemoteException;
+
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
 import ru.cubly.aceim.api.utils.Logger;
@@ -7,10 +12,6 @@ import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.R;
 import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.AccountService;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.RemoteException;
 
 public final class ServiceUtils {
 	

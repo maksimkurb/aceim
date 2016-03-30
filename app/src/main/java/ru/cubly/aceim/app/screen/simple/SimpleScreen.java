@@ -1,29 +1,30 @@
 package ru.cubly.aceim.app.screen.simple;
 
-import static ru.cubly.aceim.app.utils.linq.KindaLinq.from;
-
-import java.util.List;
-
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.screen.Screen;
-import ru.cubly.aceim.app.utils.PageManager;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.Page.PageChangedListener;
-import ru.cubly.aceim.app.page.contactlist.ContactList;
-import ru.cubly.aceim.app.page.other.Splash;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
-import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
-import ru.cubly.aceim.app.widgets.pageselector.TabSelector;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import java.util.List;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.Page.PageChangedListener;
+import ru.cubly.aceim.app.page.contactlist.ContactList;
+import ru.cubly.aceim.app.page.other.Splash;
+import ru.cubly.aceim.app.screen.Screen;
+import ru.cubly.aceim.app.utils.PageManager;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
+import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
+import ru.cubly.aceim.app.widgets.pageselector.TabSelector;
+
+import static ru.cubly.aceim.app.utils.linq.KindaLinq.from;
 
 public class SimpleScreen extends Screen implements PageChangedListener {
 	
@@ -43,7 +44,7 @@ public class SimpleScreen extends Screen implements PageChangedListener {
 		}
 	};
 	
-	public SimpleScreen(MainActivity activity) {
+	public SimpleScreen(OldMainActivity activity) {
 		super(activity);
 		LayoutInflater.from(activity).inflate(R.layout.screen_simple, this);
 		mTabHolder = (TabSelector) findViewById(R.id.tab_selector);

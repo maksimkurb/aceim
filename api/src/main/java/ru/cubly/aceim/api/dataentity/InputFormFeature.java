@@ -1,9 +1,10 @@
 package ru.cubly.aceim.api.dataentity;
 
-import ru.cubly.aceim.api.IProtocol;
-import ru.cubly.aceim.api.dataentity.tkv.TKV;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.IProtocol;
+import ru.cubly.aceim.api.dataentity.tkv.TKV;
 
 /**
  * A {@link ProtocolServiceFeature}, that uses some input form as an action.

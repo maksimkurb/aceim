@@ -1,5 +1,22 @@
 package ru.cubly.aceim.app.service;
 
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.PowerManager;
+import android.os.RemoteException;
+import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
+
+import com.androidquery.callback.BitmapAjaxCallback;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,22 +71,6 @@ import ru.cubly.aceim.app.utils.OptionsReceiver.OnOptionChangedListener;
 import ru.cubly.aceim.app.utils.ViewUtils;
 import ru.cubly.aceim.app.utils.history.HistorySaver;
 import ru.cubly.aceim.app.utils.history.impl.JsonHistorySaver;
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.wifi.WifiManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.PowerManager;
-import android.os.RemoteException;
-import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
-
-import com.androidquery.callback.BitmapAjaxCallback;
 
 public class CoreService extends Service {
 
@@ -763,7 +764,7 @@ public class CoreService extends Service {
 			}
 
 			// The following actions are required in a case when user joins
-			// non-already-existing chat
+			// non-already-existing page_chat
 			Buddy b = a.getBuddyByProtocolUid(chatId);
 			if (b == null) {
 				b = new MultiChatRoom(chatId, a.getProtocolUid(), a.getProtocolName(), a.getServiceId());

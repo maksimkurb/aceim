@@ -1,9 +1,5 @@
 package ru.cubly.aceim.app.widgets.pageselector;
 
-import java.util.List;
-
-import ru.cubly.aceim.app.themeable.dataentity.TabThemeResource;
-import ru.cubly.aceim.app.page.Page;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.androidquery.AQuery;
+
+import java.util.List;
+
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.themeable.dataentity.TabThemeResource;
 
 public class PageAdapter extends ArrayAdapter<Page> {
 

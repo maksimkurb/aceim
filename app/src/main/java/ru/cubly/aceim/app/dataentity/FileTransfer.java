@@ -1,9 +1,10 @@
 package ru.cubly.aceim.app.dataentity;
 
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.FileProgress;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.FileProgress;
 
 public class FileTransfer implements Parcelable {
 	

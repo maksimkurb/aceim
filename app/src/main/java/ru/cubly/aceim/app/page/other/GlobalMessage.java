@@ -1,12 +1,5 @@
 package ru.cubly.aceim.app.page.other;
 
-import java.util.List;
-
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBar;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButtonInfo;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,6 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
+
+import java.util.List;
+
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBar;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButtonInfo;
 
 public class GlobalMessage extends Page {
 	
@@ -34,7 +35,7 @@ public class GlobalMessage extends Page {
 	
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.global_message, group, false);
+		View view = inflater.inflate(R.layout.page_global_message, group, false);
 		
 		TextView text = (TextView) view.findViewById(R.id.text);
 		text.setText(textId);

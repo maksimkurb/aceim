@@ -1,12 +1,5 @@
 package ru.cubly.aceim.app.preference;
 
-import java.util.Map;
-
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.Constants.OptionKey;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
-import ru.cubly.aceim.app.utils.OptionsReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -15,6 +8,14 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.support.v4.content.LocalBroadcastManager;
+
+import java.util.Map;
+
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.Constants.OptionKey;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
+import ru.cubly.aceim.app.utils.OptionsReceiver;
 
 public class GlobalOptions extends OptionsPage  {
 	

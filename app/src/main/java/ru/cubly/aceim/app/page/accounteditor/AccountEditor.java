@@ -1,35 +1,5 @@
 package ru.cubly.aceim.app.page.accounteditor;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.ProtocolOption;
-import ru.cubly.aceim.api.dataentity.tkv.FileTKV;
-import ru.cubly.aceim.api.dataentity.tkv.ListTKV;
-import ru.cubly.aceim.api.dataentity.tkv.StringTKV;
-import ru.cubly.aceim.api.dataentity.tkv.ToggleTKV;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
-import ru.cubly.aceim.app.widgets.pickers.CalendarPickerListenerBase;
-import ru.cubly.aceim.app.widgets.pickers.DatePickerListener;
-import ru.cubly.aceim.app.widgets.pickers.FilePickerListener;
-import ru.cubly.aceim.app.widgets.pickers.PickerListenerBase.ValuePickedListener;
-import ru.cubly.aceim.app.widgets.pickers.TimePickerListener;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -59,6 +29,37 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.ProtocolOption;
+import ru.cubly.aceim.api.dataentity.tkv.FileTKV;
+import ru.cubly.aceim.api.dataentity.tkv.ListTKV;
+import ru.cubly.aceim.api.dataentity.tkv.StringTKV;
+import ru.cubly.aceim.api.dataentity.tkv.ToggleTKV;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
+import ru.cubly.aceim.app.widgets.pickers.CalendarPickerListenerBase;
+import ru.cubly.aceim.app.widgets.pickers.DatePickerListener;
+import ru.cubly.aceim.app.widgets.pickers.FilePickerListener;
+import ru.cubly.aceim.app.widgets.pickers.PickerListenerBase.ValuePickedListener;
+import ru.cubly.aceim.app.widgets.pickers.TimePickerListener;
+
 @SuppressLint("InlinedApi")
 public class AccountEditor extends Page implements IHasFilePicker {
 
@@ -76,7 +77,7 @@ public class AccountEditor extends Page implements IHasFilePicker {
 
 		@Override
 		public void onClick(View v) {
-			final MainActivity activity = (MainActivity) getMainActivity();
+			final OldMainActivity activity = (OldMainActivity) getMainActivity();
 			
 			if (mHasUnsavedChanges) {
 				final AlertDialog dialog = new AlertDialog.Builder(activity)
@@ -116,7 +117,7 @@ public class AccountEditor extends Page implements IHasFilePicker {
 
 		@Override
 		public void onClick(View clicked) {
-			MainActivity activity = (MainActivity) getMainActivity();
+			OldMainActivity activity = (OldMainActivity) getMainActivity();
 
 			//if protocol still not chosen
 			if (mOptions == null) {
@@ -198,12 +199,12 @@ public class AccountEditor extends Page implements IHasFilePicker {
 
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		MainActivity activity = (MainActivity) getMainActivity();
+		OldMainActivity activity = (OldMainActivity) getMainActivity();
 		Collection<ProtocolResources> resources = obtainResourcesForEditor();
 		this.mAdapter = new ArrayAdapter<ProtocolResources>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, resources.toArray(new ProtocolResources[resources.size()]));
 		this.mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-		View view = inflater.inflate(R.layout.account_editor, group, false);
+		View view = inflater.inflate(R.layout.page_account_editor, group, false);
 
 		final LinearLayout container = (LinearLayout) view.findViewById(R.id.container);
 
@@ -264,7 +265,7 @@ public class AccountEditor extends Page implements IHasFilePicker {
 	private void constructEditor(LinearLayout container) {
 		container.removeAllViews();
 
-		MainActivity activity = (MainActivity) getMainActivity();
+		OldMainActivity activity = (OldMainActivity) getMainActivity();
 		Resources resources;
 		try {
 			resources = mSelectedResources.getNativeResourcesForProtocol(getMainActivity().getPackageManager());
@@ -468,7 +469,7 @@ public class AccountEditor extends Page implements IHasFilePicker {
 	}
 
 	@Override
-	public void onFilePicked(ActivityResult result, MainActivity activity) {
+	public void onFilePicked(ActivityResult result, OldMainActivity activity) {
 		switch (result.getResultCode()) {
 		case Activity.RESULT_OK:
 			for (int i = 0; i < mOptions.size(); i++) {

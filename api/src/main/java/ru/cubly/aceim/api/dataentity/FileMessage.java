@@ -1,10 +1,10 @@
 package ru.cubly.aceim.api.dataentity;
 
-import java.util.Collections;
-import java.util.List;
-
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * File transfer message entity.

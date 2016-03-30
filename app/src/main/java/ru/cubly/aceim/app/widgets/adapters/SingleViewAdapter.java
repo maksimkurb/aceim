@@ -1,10 +1,5 @@
 package ru.cubly.aceim.app.widgets.adapters;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.R;
 import android.content.Context;
 import android.view.SoundEffectConstants;
 import android.view.View;
@@ -16,6 +11,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
+
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.R;
 
 public abstract class SingleViewAdapter<I,V extends View> extends ArrayAdapter<I> {
 	

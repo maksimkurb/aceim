@@ -1,18 +1,19 @@
 package ru.cubly.aceim.app.widgets.pickers;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import ru.cubly.aceim.api.dataentity.tkv.TKV;
-import ru.cubly.aceim.app.MainActivity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.widget.TimePicker;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import ru.cubly.aceim.api.dataentity.tkv.TKV;
+import ru.cubly.aceim.app.OldMainActivity;
+
 public class TimePickerListener extends CalendarPickerListenerBase {
 
-	public TimePickerListener(TKV tkv, ValuePickedListener listener, MainActivity activity) {
+	public TimePickerListener(TKV tkv, ValuePickedListener listener, OldMainActivity activity) {
 		super(tkv, listener, activity, SimpleDateFormat.getTimeInstance());
 	}
 

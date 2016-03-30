@@ -1,6 +1,5 @@
 package ru.cubly.aceim.app.utils;
 
-import ru.cubly.expandablegrid.ExpandableGridView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -10,6 +9,8 @@ import android.widget.ExpandableListView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.BitmapAjaxCallback;
+
+import ru.cubly.expandablegrid.ExpandableGridView;
 
 public final class AQueryUtils {
 

@@ -1,14 +1,5 @@
 package ru.cubly.aceim.app.page.other;
 
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.PersonalInfo;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.page.Page;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,6 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.PersonalInfo;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.utils.DialogUtils;
 
 public class SearchResult extends Page {
 	
@@ -47,7 +48,7 @@ public class SearchResult extends Page {
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.search_result_list, null);
+		View view = inflater.inflate(R.layout.page_search_result_list, null);
 		mList = (ListView) view.findViewById(R.id.list);
 		mList.setAdapter(new PersonalInfoAdapter(getMainActivity()));
 		return view;

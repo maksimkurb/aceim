@@ -1,8 +1,9 @@
 package ru.cubly.aceim.api.dataentity.tkv;
 
-import ru.cubly.aceim.api.dataentity.ProtocolOption.ProtocolOptionType;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.dataentity.ProtocolOption.ProtocolOptionType;
 
 /**
  * Text string {@link TKV}.

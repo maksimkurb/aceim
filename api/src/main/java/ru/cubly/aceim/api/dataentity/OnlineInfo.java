@@ -1,10 +1,10 @@
 package ru.cubly.aceim.api.dataentity;
 
-import java.util.Date;
-
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.Date;
 
 /**
  * Online info entity. Carries buddy/account online info update.

@@ -1,13 +1,5 @@
 package ru.cubly.aceim.app.widgets.adapters;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter.IconTitleItem;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -19,6 +11,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter.IconTitleItem;
 
 public class IconTitleAdapter extends ArrayAdapter<IconTitleItem> {
 	

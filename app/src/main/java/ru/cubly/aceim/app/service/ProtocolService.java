@@ -1,15 +1,5 @@
 package ru.cubly.aceim.app.service;
 
-import java.util.concurrent.Executors;
-
-import ru.cubly.aceim.api.dataentity.ItemAction;
-import ru.cubly.aceim.api.service.ICoreProtocolCallback;
-import ru.cubly.aceim.api.service.ICoreProtocolCallback.Stub;
-import ru.cubly.aceim.api.service.IProtocolService;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.service.ProtocolServicesManager.ProtocolListener;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +10,17 @@ import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.os.IBinder;
 import android.os.RemoteException;
+
+import java.util.concurrent.Executors;
+
+import ru.cubly.aceim.api.dataentity.ItemAction;
+import ru.cubly.aceim.api.service.ICoreProtocolCallback;
+import ru.cubly.aceim.api.service.ICoreProtocolCallback.Stub;
+import ru.cubly.aceim.api.service.IProtocolService;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.service.ProtocolServicesManager.ProtocolListener;
 
 
 public class ProtocolService implements ServiceConnection {

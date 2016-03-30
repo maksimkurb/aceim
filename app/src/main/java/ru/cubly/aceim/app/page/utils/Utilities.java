@@ -1,16 +1,5 @@
 package ru.cubly.aceim.app.page.utils;
 
-import java.util.Arrays;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.FileProgress;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFileProgress;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,6 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.Arrays;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.FileProgress;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFileProgress;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public class Utilities extends Page implements  IHasFilePicker, IHasFileProgress{
 	
@@ -40,7 +41,7 @@ public class Utilities extends Page implements  IHasFilePicker, IHasFileProgress
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.utils, null);
+		View view = inflater.inflate(R.layout.page_utils, null);
 		
 		UTILS = new Util[]{new AccountImporter(getMainActivity())};
 		
@@ -103,7 +104,7 @@ public class Utilities extends Page implements  IHasFilePicker, IHasFileProgress
 	}
 
 	@Override
-	public void onFilePicked(ActivityResult result, MainActivity activity) {
+	public void onFilePicked(ActivityResult result, OldMainActivity activity) {
 		for (Util u : UTILS) {
 			if (u instanceof IHasFilePicker) {
 				((IHasFilePicker)u).onFilePicked(result, activity);

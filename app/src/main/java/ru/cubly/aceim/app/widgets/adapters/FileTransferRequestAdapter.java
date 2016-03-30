@@ -1,15 +1,16 @@
 package ru.cubly.aceim.app.widgets.adapters;
 
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.FileInfo;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.utils.ViewUtils;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.FileInfo;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public class FileTransferRequestAdapter extends ArrayAdapter<FileInfo> {
 

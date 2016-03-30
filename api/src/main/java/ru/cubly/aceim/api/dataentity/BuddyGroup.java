@@ -1,14 +1,15 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.service.ProtocolService;
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Buddy group entity.

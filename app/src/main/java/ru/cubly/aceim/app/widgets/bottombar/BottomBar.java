@@ -1,12 +1,13 @@
 package ru.cubly.aceim.app.widgets.bottombar;
 
-import ru.cubly.aceim.app.AceIMActivity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
+
+import ru.cubly.aceim.app.AceIMActivity;
 
 public class BottomBar extends LinearLayout {
 	

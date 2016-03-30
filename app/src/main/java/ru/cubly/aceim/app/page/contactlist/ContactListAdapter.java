@@ -1,16 +1,5 @@
 package ru.cubly.aceim.app.page.contactlist;
 
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.BuddyGroup;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.themeable.dataentity.ContactListItemThemeResource;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.contactlist.ContactListUpdater.ContactListModelGroup;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +11,18 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 
 import com.androidquery.AQuery;
+
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.BuddyGroup;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.contactlist.ContactListUpdater.ContactListModelGroup;
+import ru.cubly.aceim.app.themeable.dataentity.ContactListItemThemeResource;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public abstract class ContactListAdapter extends BaseExpandableListAdapter {
 
@@ -121,7 +122,7 @@ public abstract class ContactListAdapter extends BaseExpandableListAdapter {
 				
 				@Override
 				public boolean onLongClick(View v) {
-					((MainActivity)parent.getContext()).onBuddyGroupContextMenuRequest(g, mResources);
+					((OldMainActivity)parent.getContext()).onBuddyGroupContextMenuRequest(g, mResources);
 					return true;
 				}
 			});
@@ -175,7 +176,7 @@ public abstract class ContactListAdapter extends BaseExpandableListAdapter {
 				
 				@Override
 				public void onClick(View v) {
-					MainActivity activity = (MainActivity) parent.getContext();
+					OldMainActivity activity = (OldMainActivity) parent.getContext();
 					Buddy buddy = (Buddy) v.getTag();
 					activity.onChatRequest(buddy);
 				}
@@ -185,7 +186,7 @@ public abstract class ContactListAdapter extends BaseExpandableListAdapter {
 
 				@Override
 				public boolean onLongClick(View v) {
-					MainActivity activity = (MainActivity) parent.getContext();
+					OldMainActivity activity = (OldMainActivity) parent.getContext();
 					Buddy buddy = (Buddy) v.getTag();
 					activity.onBuddyContextMenuRequest(buddy, mResources);
 					return true;

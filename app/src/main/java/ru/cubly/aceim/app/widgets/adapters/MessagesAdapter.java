@@ -1,5 +1,24 @@
 package ru.cubly.aceim.app.widgets.adapters;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.method.MovementMethod;
+import android.text.style.ImageSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.androidquery.AQuery;
+import com.androidquery.callback.BitmapAjaxCallback;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,30 +40,12 @@ import ru.cubly.aceim.api.dataentity.TextMessage;
 import ru.cubly.aceim.api.dataentity.tkv.MessageAttachment;
 import ru.cubly.aceim.api.dataentity.tkv.MessageAttachment.MessageAttachmentType;
 import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.R;
 import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
 import ru.cubly.aceim.app.themeable.dataentity.ChatMessageItemThemeResource;
 import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.method.MovementMethod;
-import android.text.style.ImageSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.androidquery.AQuery;
-import com.androidquery.callback.BitmapAjaxCallback;
 
 public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 	
@@ -72,7 +73,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		}
 	};
 	
-	public MessagesAdapter(MainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout) {
+	public MessagesAdapter(OldMainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout) {
 		super(activity, 0, 0);		
 		this.messageItemLayout = messageItemLayout;
 		this.mAccount = account;
@@ -80,7 +81,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		init(activity);
 	}
 
-	public MessagesAdapter(MainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout, ChatMessageHolder[] objects) {
+	public MessagesAdapter(OldMainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout, ChatMessageHolder[] objects) {
 		super(activity, 0, 0, objects);
 		this.messageItemLayout = messageItemLayout;
 		this.mAccount = account;
@@ -88,7 +89,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		init(activity);
 	}
 
-	public MessagesAdapter(MainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout, List<ChatMessageHolder> objects) {
+	public MessagesAdapter(OldMainActivity activity, Account account, Buddy buddy, ChatMessageItemThemeResource messageItemLayout, List<ChatMessageHolder> objects) {
 		super(activity, 0, 0, objects);
 		this.messageItemLayout = messageItemLayout;
 		this.mAccount = account;
@@ -96,7 +97,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		init(activity);
 	}
 	
-	private void init(MainActivity activity){
+	private void init(OldMainActivity activity){
 		mDateFormat = android.text.format.DateFormat.getLongDateFormat(activity);
 		mTimeFormat = android.text.format.DateFormat.getTimeFormat(activity);
 		
@@ -307,7 +308,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		return resId;
 	}
 
-	private static final void setTextAndFormat(MainActivity activity, TextView view, ChatMessageHolder holder, boolean dontDrawSmileys) {
+	private static final void setTextAndFormat(OldMainActivity activity, TextView view, ChatMessageHolder holder, boolean dontDrawSmileys) {
 		
 		MovementMethod mm = view.getMovementMethod();
         if (!(mm instanceof LinkMovementMethod))
@@ -426,7 +427,7 @@ public class MessagesAdapter extends ArrayAdapter<ChatMessageHolder> {
 		notifyDataSetChanged();
 	}
 	
-	protected MainActivity getMainActivity() {
-		return (MainActivity) getContext();
+	protected OldMainActivity getMainActivity() {
+		return (OldMainActivity) getContext();
 	}
 }

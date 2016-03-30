@@ -1,11 +1,12 @@
 package ru.cubly.aceim.app.preference;
 
-import ru.cubly.aceim.app.Constants.OptionKey;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.widgets.preference.EditablePasswordPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+
+import ru.cubly.aceim.app.Constants.OptionKey;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.widgets.preference.EditablePasswordPreference;
 
 public abstract class OptionsPage extends OptionsFragment {
 

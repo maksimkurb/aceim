@@ -1,21 +1,5 @@
 package ru.cubly.aceim.app.page.transfers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.api.dataentity.FileProgress;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.FileTransfer;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFileTransfer;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,6 +18,23 @@ import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.api.dataentity.FileProgress;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.FileTransfer;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFileTransfer;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.utils.DialogUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public class FileTransfers extends Page implements IHasFileTransfer {
 	
@@ -139,7 +140,7 @@ public class FileTransfers extends Page implements IHasFileTransfer {
 	
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.file_transfers, null);
+		View view = inflater.inflate(R.layout.page_file_transfers, null);
 		
 		view.findViewById(R.id.cancel_all).setOnClickListener(mCancelAllClickListener);
 		view.findViewById(R.id.close).setOnClickListener(mRemoveMeClickListener);

@@ -1,8 +1,8 @@
 package ru.cubly.aceim.api;
 
-import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.FileMessage;
 import ru.cubly.aceim.api.dataentity.ItemAction;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
 import ru.cubly.aceim.api.dataentity.ServiceMessage;
 import ru.cubly.aceim.api.service.ApiConstants;

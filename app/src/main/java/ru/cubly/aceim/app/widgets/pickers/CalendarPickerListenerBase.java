@@ -1,13 +1,14 @@
 package ru.cubly.aceim.app.widgets.pickers;
 
+import android.app.AlertDialog;
+import android.view.View;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
 import ru.cubly.aceim.api.dataentity.tkv.TKV;
 import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.MainActivity;
-import android.app.AlertDialog;
-import android.view.View;
+import ru.cubly.aceim.app.OldMainActivity;
 
 public abstract class CalendarPickerListenerBase extends PickerListenerBase {
 
@@ -15,7 +16,7 @@ public abstract class CalendarPickerListenerBase extends PickerListenerBase {
 
 	protected final DateFormat format;
 
-	protected CalendarPickerListenerBase(TKV tkv, ValuePickedListener listener, MainActivity activity, DateFormat format) {
+	protected CalendarPickerListenerBase(TKV tkv, ValuePickedListener listener, OldMainActivity activity, DateFormat format) {
 		super(tkv, listener, activity);
 		this.format = format;
 	}

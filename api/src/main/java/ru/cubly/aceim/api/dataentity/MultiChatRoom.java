@@ -1,11 +1,11 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Multi-user chat room entity. Recognized as {@link Buddy}.

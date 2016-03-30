@@ -1,22 +1,23 @@
 package ru.cubly.aceim.api.service;
 
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
 import ru.cubly.aceim.api.dataentity.ItemAction;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;
 import ru.cubly.aceim.api.dataentity.ProtocolOption;
 import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.api.utils.ServiceHelper;
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import android.os.RemoteException;
 
 /**
  * Protocol service base, contains all protocol and account management logic. Should be nested by protocol implementation. 

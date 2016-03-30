@@ -1,24 +1,5 @@
 package ru.cubly.aceim.app.page.history;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.Message;
-import ru.cubly.aceim.api.dataentity.MessageAckState;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
-import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
-import ru.cubly.aceim.app.widgets.adapters.MessagesAdapter;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,6 +16,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.Message;
+import ru.cubly.aceim.api.dataentity.MessageAckState;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
+import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.adapters.MessagesAdapter;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public class History extends Page implements IHasMessages, IHasBuddy {
 	
@@ -132,7 +133,7 @@ public class History extends Page implements IHasMessages, IHasBuddy {
 
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved){
-		View view = inflater.inflate(R.layout.history, group, false); 
+		View view = inflater.inflate(R.layout.page_history, group, false);
 		
 		mMessages = (ListView) view.findViewById(R.id.messages);
 		mSwiper = (SwipeRefreshLayout) view.findViewById(R.id.refresh);
@@ -143,7 +144,7 @@ public class History extends Page implements IHasMessages, IHasBuddy {
 		mCancelBtn = (BottomBarButton) view.findViewById(R.id.cancel);
 		
 		if (mMessageAdapter == null) {
-			MainActivity activity = getMainActivity();
+			OldMainActivity activity = getMainActivity();
 			try {
 				Account a = activity.getCoreService().getAccount(mBuddy.getServiceId());
 				mMessageAdapter = new MessagesAdapter(activity, a, mBuddy, activity.getThemesManager().getViewResources().getHistoryMessageItemLayout(), mMessageHolders);
@@ -268,7 +269,7 @@ public class History extends Page implements IHasMessages, IHasBuddy {
 	}
 	
 	private void createConfirmDeleteDialog() {
-		final MainActivity activity = getMainActivity();
+		final OldMainActivity activity = getMainActivity();
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setCancelable(true)

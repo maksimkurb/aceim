@@ -1,5 +1,12 @@
 package ru.cubly.aceim.app.service;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,12 +19,6 @@ import ru.cubly.aceim.api.service.ICoreProtocolCallback;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.utils.PluginsManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ServiceInfo;
 
 class ProtocolServicesManager extends PluginsManager {
 

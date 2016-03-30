@@ -1,12 +1,13 @@
 package ru.cubly.aceim.app.widgets.bottombar;
 
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.app.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.app.R;
 
 public class ContactListBottomBar extends BottomBar {
 

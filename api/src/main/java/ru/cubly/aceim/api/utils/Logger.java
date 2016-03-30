@@ -1,15 +1,16 @@
 package ru.cubly.aceim.api.utils;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Environment;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Environment;
-import android.util.Log;
 
 /**
  * Simple logger with ability to log messages to the file.

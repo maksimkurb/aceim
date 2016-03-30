@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:padding="@dimen/list_item_margin">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:layout_width="@dimen/account_avatar_image_size"
+		android:layout_height="@dimen/account_avatar_image_size"
+		android:id="@+id/account_avatar"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:src="@drawable/dummy_icon"
+		android:layout_marginRight="@dimen/list_item_image_margin" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="@string/PLACEHOLDER"
+		android:id="@+id/account_name"
+		android:layout_alignTop="@+id/account_avatar"
+		android:layout_toRightOf="@+id/account_avatar"
+		android:layout_toEndOf="@+id/account_avatar" />
+
+	<ImageView
+        android:id="@+id/protocol_image"
+		android:layout_width="@dimen/account_protocol_image_size"
+		android:layout_height="@dimen/account_protocol_image_size"
+		android:layout_alignBottom="@+id/account_avatar"
+		android:layout_alignLeft="@+id/account_name"
+		android:layout_alignStart="@+id/account_name"
+		android:src="@drawable/dummy_icon"
+		android:layout_marginRight="@dimen/list_item_image_margin" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="@string/PLACEHOLDER"
+		android:id="@+id/protocol_name"
+		android:layout_alignBottom="@+id/protocol_image"
+		android:layout_toRightOf="@+id/protocol_image"
+		android:layout_toEndOf="@+id/protocol_image" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/account_online_status_image_size"
+        android:layout_height="@dimen/account_online_status_image_size"
+        android:id="@+id/account_online_status"
+        android:layout_alignTop="@+id/account_avatar"
+        android:layout_alignRight="@+id/account_avatar"
+        android:layout_alignEnd="@+id/account_avatar"
+        android:src="@color/online"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_delete"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_delete_black_24dp" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_active"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/account_delete"
+        android:layout_toStartOf="@+id/account_delete" />
+
+</RelativeLayout>

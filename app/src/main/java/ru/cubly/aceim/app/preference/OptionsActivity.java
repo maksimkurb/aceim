@@ -1,15 +1,16 @@
 package ru.cubly.aceim.app.preference;
 
-import ru.cubly.aceim.app.AceIMActivity;
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.utils.ViewUtils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+
+import ru.cubly.aceim.app.AceIMActivity;
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public class OptionsActivity extends AceIMActivity {
 	
@@ -36,7 +37,7 @@ public class OptionsActivity extends AceIMActivity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		if (keyCode == KeyEvent.KEYCODE_BACK){
-			startActivity(new Intent(this, MainActivity.class));
+			startActivity(new Intent(this, OldMainActivity.class));
 			finish();
 		}
 		

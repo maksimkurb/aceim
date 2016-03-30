@@ -1,34 +1,5 @@
 package ru.cubly.aceim.app.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import ru.cubly.aceim.api.dataentity.ActionFeature;
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.BuddyGroup;
-import ru.cubly.aceim.api.dataentity.FileMessage;
-import ru.cubly.aceim.api.dataentity.InputFormFeature;
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.api.dataentity.Message;
-import ru.cubly.aceim.api.dataentity.MultiChatRoom;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeatureTarget;
-import ru.cubly.aceim.api.dataentity.ToggleFeature;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.adapters.FileTransferRequestAdapter;
-import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter;
-import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter.IconTitleItem;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -53,6 +24,36 @@ import android.widget.Spinner;
 
 import com.androidquery.AQuery;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import ru.cubly.aceim.api.dataentity.ActionFeature;
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.BuddyGroup;
+import ru.cubly.aceim.api.dataentity.FileMessage;
+import ru.cubly.aceim.api.dataentity.InputFormFeature;
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.api.dataentity.Message;
+import ru.cubly.aceim.api.dataentity.MultiChatRoom;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeatureTarget;
+import ru.cubly.aceim.api.dataentity.ToggleFeature;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.widgets.adapters.FileTransferRequestAdapter;
+import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter;
+import ru.cubly.aceim.app.widgets.adapters.IconTitleAdapter.IconTitleItem;
+
 public final class DialogUtils {
 
 	private static final Map<Long, Dialog> sFileTransferDialogs = new HashMap<Long, Dialog>();
@@ -70,11 +71,11 @@ public final class DialogUtils {
 		}
 	}
 
-	public static void showFileMessageDialog(final FileMessage message, Buddy buddy, final MainActivity activity) {
+	public static void showFileMessageDialog(final FileMessage message, Buddy buddy, final OldMainActivity activity) {
 		showAcceptDeclineDialog(message, buddy, activity);
 	}
 
-	public static void showEditListFeatureDialog(final MainActivity activity, final OnlineInfo info, ProtocolResources protocolResources, final ListFeature feature) {
+	public static void showEditListFeatureDialog(final OldMainActivity activity, final OnlineInfo info, ProtocolResources protocolResources, final ListFeature feature) {
 		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setTitle(feature.getFeatureName());
 		
@@ -99,7 +100,7 @@ public final class DialogUtils {
 			
 			final IconTitleAdapter adapter;
 			try {
-				adapter = IconTitleAdapter.fromListFeature(activity, R.layout.status_item, protocolResources, feature);
+				adapter = IconTitleAdapter.fromListFeature(activity, R.layout.item_status, protocolResources, feature);
 				grid.setAdapter(adapter);
 			} catch (AceImException e) {
 				Logger.log(e);
@@ -180,7 +181,7 @@ public final class DialogUtils {
 		}
 	}
 
-	public static void buddyGroupContextMenu(final MainActivity mainActivity, final Account account, final BuddyGroup group, final ProtocolResources protocolResources) {
+	public static void buddyGroupContextMenu(final OldMainActivity oldMainActivity, final Account account, final BuddyGroup group, final ProtocolResources protocolResources) {
 		boolean groupManagementAllowed = account.getOnlineInfo().getFeatures().getBoolean(ApiConstants.FEATURE_GROUP_MANAGEMENT, false);
 		
 		if (!groupManagementAllowed) {
@@ -188,14 +189,14 @@ public final class DialogUtils {
 			return;
 		}
 		
-		final Dialog dialog = new Dialog(mainActivity);
-		dialog.setTitle(mainActivity.getString(R.string.contact_menu, group.getName()));
+		final Dialog dialog = new Dialog(oldMainActivity);
+		dialog.setTitle(oldMainActivity.getString(R.string.contact_menu, group.getName()));
 	
-		ListView list = new ListView(mainActivity);
-		int pad = mainActivity.getResources().getDimensionPixelSize(R.dimen.default_padding);
+		ListView list = new ListView(oldMainActivity);
+		int pad = oldMainActivity.getResources().getDimensionPixelSize(R.dimen.default_padding);
 		list.setPadding(pad, 0, pad, 0);
 		
-		TypedArray items = mainActivity.getResources().obtainTypedArray(R.array.group_menu_names);
+		TypedArray items = oldMainActivity.getResources().obtainTypedArray(R.array.group_menu_names);
 	
 		final List<IconTitleItem> itemList = new ArrayList<IconTitleItem>();
 		for (int i = 0; i < items.length(); i++){
@@ -233,7 +234,7 @@ public final class DialogUtils {
 			itemList.add(t);
 		}
 	
-		final IconTitleAdapter adapter = new IconTitleAdapter(mainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, itemList, new ListView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		final IconTitleAdapter adapter = new IconTitleAdapter(oldMainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, itemList, new ListView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		list.setAdapter(adapter);
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
@@ -243,12 +244,12 @@ public final class DialogUtils {
 				IconTitleItem item = adapter.getItem(position);
 				String name = item.getTitle();
 				
-				if (name.equals(mainActivity.getString(R.string.menu_value_add_group))) {
-					showAddOrRenameGroupDialog(null, account, mainActivity);
-				} else if (name.equals(mainActivity.getString(R.string.menu_value_rename))) {
-					showAddOrRenameGroupDialog(group, account, mainActivity);
-				} else if (name.equals(mainActivity.getString(R.string.menu_value_delete_group))) {
-					showConfirmRemoveGroupDialog(group, mainActivity);
+				if (name.equals(oldMainActivity.getString(R.string.menu_value_add_group))) {
+					showAddOrRenameGroupDialog(null, account, oldMainActivity);
+				} else if (name.equals(oldMainActivity.getString(R.string.menu_value_rename))) {
+					showAddOrRenameGroupDialog(group, account, oldMainActivity);
+				} else if (name.equals(oldMainActivity.getString(R.string.menu_value_delete_group))) {
+					showConfirmRemoveGroupDialog(group, oldMainActivity);
 				}
 				
 				dialog.dismiss();
@@ -260,15 +261,15 @@ public final class DialogUtils {
 		DialogUtils.showBrandedDialog(dialog);
 	}
 
-	public static void buddyContextMenu(final MainActivity mainActivity, final Account account, final Buddy buddy, final ProtocolResources protocolResources) {
-		final Dialog dialog = new Dialog(mainActivity);
-		dialog.setTitle(mainActivity.getString(R.string.contact_menu, buddy.getSafeName()));
+	public static void buddyContextMenu(final OldMainActivity oldMainActivity, final Account account, final Buddy buddy, final ProtocolResources protocolResources) {
+		final Dialog dialog = new Dialog(oldMainActivity);
+		dialog.setTitle(oldMainActivity.getString(R.string.contact_menu, buddy.getSafeName()));
 	
-		ListView list = new ListView(mainActivity);
-		int pad = mainActivity.getResources().getDimensionPixelSize(R.dimen.default_padding);
+		ListView list = new ListView(oldMainActivity);
+		int pad = oldMainActivity.getResources().getDimensionPixelSize(R.dimen.default_padding);
 		list.setPadding(pad, 0, pad, 0);
 		
-		TypedArray items = mainActivity.getResources().obtainTypedArray(R.array.contact_menu_names);
+		TypedArray items = oldMainActivity.getResources().obtainTypedArray(R.array.contact_menu_names);
 		
 		boolean buddyManagementAllowed = account.getOnlineInfo().getFeatures().getBoolean(ApiConstants.FEATURE_BUDDY_MANAGEMENT, false);
 	
@@ -276,38 +277,38 @@ public final class DialogUtils {
 		for (int i = 0; i < items.length(); i++) {
 			String item = items.getString(i);
 	
-			if (item.equals(mainActivity.getString(R.string.menu_value_add_to_list))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_add_to_list))) {
 				if ((buddy instanceof MultiChatRoom) ||buddy.getGroupId() != ApiConstants.NOT_IN_LIST_GROUP_ID) {
 					continue;
 				}
 			}
-			if (item.equals(mainActivity.getString(R.string.menu_value_move))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_move))) {
 				if ((buddy instanceof MultiChatRoom) ||!buddyManagementAllowed || buddy.getGroupId() == ApiConstants.NOT_IN_LIST_GROUP_ID || !hasGroupsToMove(buddy, account)) {
 					continue;
 				}
 			}
-			if (item.equals(mainActivity.getString(R.string.menu_value_rename))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_rename))) {
 				if ((buddy instanceof MultiChatRoom) ||!buddyManagementAllowed || buddy.getGroupId() == ApiConstants.NOT_IN_LIST_GROUP_ID) {
 					continue;
 				}
 			}
-			if (item.equals(mainActivity.getString(R.string.menu_value_add_to_list))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_add_to_list))) {
 				if ((buddy instanceof MultiChatRoom) ||!buddyManagementAllowed || buddy.getGroupId() != ApiConstants.NOT_IN_LIST_GROUP_ID) {
 					continue;
 				}
 			}			
-			if (item.equals(mainActivity.getString(R.string.menu_value_join_chat))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_join_chat))) {
 				if (!(buddy instanceof MultiChatRoom) || buddy.getOnlineInfo().getFeatures().getByte(ApiConstants.FEATURE_STATUS, (byte) -1) > -1) {
 					continue;
 				}
 			}
-			if (item.equals(mainActivity.getString(R.string.menu_value_leave_chat))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_leave_chat))) {
 				if (!(buddy instanceof MultiChatRoom) || buddy.getOnlineInfo().getFeatures().getByte(ApiConstants.FEATURE_STATUS, (byte) -1) < 0) {
 					continue;
 				}
 			}
 			
-			if (item.equals(mainActivity.getString(R.string.menu_value_delete_contact))) {
+			if (item.equals(oldMainActivity.getString(R.string.menu_value_delete_contact))) {
 				if (!(buddy instanceof MultiChatRoom) && !buddyManagementAllowed) {
 					continue;
 				}
@@ -361,7 +362,7 @@ public final class DialogUtils {
 			itemList.add(t);
 		}
 		
-		final IconTitleAdapter adapter = new IconTitleAdapter(mainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, itemList, new ListView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		final IconTitleAdapter adapter = new IconTitleAdapter(oldMainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, itemList, new ListView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {
 	
@@ -374,41 +375,41 @@ public final class DialogUtils {
 						ProtocolServiceFeature f = protocolResources.getFeature(item.getId());
 						
 						if (f instanceof ListFeature) {
-							showEditListFeatureDialog(mainActivity, buddy.getOnlineInfo(), protocolResources, (ListFeature)f);
+							showEditListFeatureDialog(oldMainActivity, buddy.getOnlineInfo(), protocolResources, (ListFeature)f);
 						} else if (f instanceof InputFormFeature) {
-							Page.getInputFormPage(mainActivity, (InputFormFeature) f, buddy.getOnlineInfo(), protocolResources);
+							Page.getInputFormPage(oldMainActivity, (InputFormFeature) f, buddy.getOnlineInfo(), protocolResources);
 						} else if (f instanceof ToggleFeature) {
 							OnlineInfo info = buddy.getOnlineInfo();
 							info.getFeatures().putBoolean(f.getFeatureId(), !info.getFeatures().getBoolean(f.getFeatureId(), ((ToggleFeature) f).getValue()));
-							mainActivity.getCoreService().setFeature(f.getFeatureId(), info);
+							oldMainActivity.getCoreService().setFeature(f.getFeatureId(), info);
 						} else if (f instanceof ActionFeature) {
-							mainActivity.getCoreService().setFeature(f.getFeatureId(), buddy.getOnlineInfo());
+							oldMainActivity.getCoreService().setFeature(f.getFeatureId(), buddy.getOnlineInfo());
 						} else {
-							ViewUtils.showAlertToast(mainActivity, android.R.drawable.ic_menu_info_details, R.string.unknown_command, item.getId());
+							ViewUtils.showAlertToast(oldMainActivity, android.R.drawable.ic_menu_info_details, R.string.unknown_command, item.getId());
 						}
 						
 					} else {
 						String name = item.getTitle();
-						if (name.equals(mainActivity.getString(R.string.menu_value_view_info))) {
-							mainActivity.getCoreService().requestBuddyFullInfo(buddy.getServiceId(), buddy.getProtocolUid());
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_add_to_list))) {
-							showAddBuddyDialog(buddy, account, mainActivity);
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_rename))) {
-							showBuddyRenameDialog(buddy, mainActivity);
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_delete_contact))) {
-							showConfirmRemoveBuddyDialog(buddy, mainActivity);
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_move))) {
-							showBuddyMoveDialog(buddy, account, mainActivity);
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_join_chat))) {
-							mainActivity.getCoreService().joinChat(buddy.getServiceId(), buddy.getProtocolUid());
-						} else if (name.equals(mainActivity.getString(R.string.menu_value_leave_chat))) {
-							mainActivity.getCoreService().leaveChat(buddy.getServiceId(), buddy.getProtocolUid());
+						if (name.equals(oldMainActivity.getString(R.string.menu_value_view_info))) {
+							oldMainActivity.getCoreService().requestBuddyFullInfo(buddy.getServiceId(), buddy.getProtocolUid());
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_add_to_list))) {
+							showAddBuddyDialog(buddy, account, oldMainActivity);
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_rename))) {
+							showBuddyRenameDialog(buddy, oldMainActivity);
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_delete_contact))) {
+							showConfirmRemoveBuddyDialog(buddy, oldMainActivity);
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_move))) {
+							showBuddyMoveDialog(buddy, account, oldMainActivity);
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_join_chat))) {
+							oldMainActivity.getCoreService().joinChat(buddy.getServiceId(), buddy.getProtocolUid());
+						} else if (name.equals(oldMainActivity.getString(R.string.menu_value_leave_chat))) {
+							oldMainActivity.getCoreService().leaveChat(buddy.getServiceId(), buddy.getProtocolUid());
 						} else {
-							ViewUtils.showAlertToast(mainActivity, android.R.drawable.ic_menu_info_details, R.string.unknown_command, name);
+							ViewUtils.showAlertToast(oldMainActivity, android.R.drawable.ic_menu_info_details, R.string.unknown_command, name);
 						}
 					}
 				} catch (RemoteException e) {
-					mainActivity.onRemoteException(e);
+					oldMainActivity.onRemoteException(e);
 				}
 				
 				dialog.dismiss();
@@ -420,7 +421,7 @@ public final class DialogUtils {
 		DialogUtils.showBrandedDialog(dialog);
 	}
 
-	public static final void showBuddyRenameDialog(final Buddy buddy, final MainActivity activity) {
+	public static final void showBuddyRenameDialog(final Buddy buddy, final OldMainActivity activity) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		final EditText editor = new EditText(activity);
 		editor.setLayoutParams(new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
@@ -463,18 +464,18 @@ public final class DialogUtils {
 		showBrandedDialog(builder.create());
 	}
 
-	public static void showConfirmRemoveBuddyDialog(final Buddy buddy, final MainActivity mainActivity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+	public static void showConfirmRemoveBuddyDialog(final Buddy buddy, final OldMainActivity oldMainActivity) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(oldMainActivity);
 		builder.setTitle(R.string.confirm_delete);
-		builder.setMessage(mainActivity.getString(R.string.are_you_sure_you_want_to_remove, buddy.getSafeName()));
+		builder.setMessage(oldMainActivity.getString(R.string.are_you_sure_you_want_to_remove, buddy.getSafeName()));
 		builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				try {
-					mainActivity.getCoreService().removeBuddy(buddy);
+					oldMainActivity.getCoreService().removeBuddy(buddy);
 				} catch (RemoteException e) {
-					mainActivity.onRemoteException(e);
+					oldMainActivity.onRemoteException(e);
 				}
 				dialog.dismiss();
 			}
@@ -489,12 +490,12 @@ public final class DialogUtils {
 		showBrandedDialog(builder.create());
 	}
 
-	public static void showBuddyMoveDialog(final Buddy buddy, Account account, final MainActivity mainActivity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
-		builder.setTitle(mainActivity.getString(R.string.move_X, buddy.getSafeName()));
+	public static void showBuddyMoveDialog(final Buddy buddy, Account account, final OldMainActivity oldMainActivity) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(oldMainActivity);
+		builder.setTitle(oldMainActivity.getString(R.string.move_X, buddy.getSafeName()));
 	
-		final Spinner spinner = new Spinner(mainActivity);
-		ArrayAdapter<BuddyGroup> adapter = new ArrayAdapter<BuddyGroup>(mainActivity, android.R.layout.simple_spinner_item, android.R.id.text1, account.getBuddyGroupList());
+		final Spinner spinner = new Spinner(oldMainActivity);
+		ArrayAdapter<BuddyGroup> adapter = new ArrayAdapter<BuddyGroup>(oldMainActivity, android.R.layout.simple_spinner_item, android.R.id.text1, account.getBuddyGroupList());
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		
@@ -514,9 +515,9 @@ public final class DialogUtils {
 				Buddy clone = ServiceUtils.cloneBuddy(buddy);
 				clone.setGroupId(((BuddyGroup)spinner.getSelectedItem()).getId());
 				try {
-					mainActivity.getCoreService().moveBuddy(clone);
+					oldMainActivity.getCoreService().moveBuddy(clone);
 				} catch (RemoteException e) {
-					mainActivity.onRemoteException(e);
+					oldMainActivity.onRemoteException(e);
 				}
 				dialog.dismiss();
 			}
@@ -532,12 +533,12 @@ public final class DialogUtils {
 		showBrandedDialog(builder.create());
 	}
 
-	public static void showAddBuddyDialog(final Buddy buddy, Account account, final MainActivity mainActivity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
-		builder.setTitle(mainActivity.getString(R.string.add_X, buddy.getSafeName()));
+	public static void showAddBuddyDialog(final Buddy buddy, Account account, final OldMainActivity oldMainActivity) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(oldMainActivity);
+		builder.setTitle(oldMainActivity.getString(R.string.add_X, buddy.getSafeName()));
 	
-		final Spinner spinner = new Spinner(mainActivity);
-		ArrayAdapter<BuddyGroup> adapter = new ArrayAdapter<BuddyGroup>(mainActivity, android.R.layout.simple_spinner_item, android.R.id.text1, account.getBuddyGroupList());
+		final Spinner spinner = new Spinner(oldMainActivity);
+		ArrayAdapter<BuddyGroup> adapter = new ArrayAdapter<BuddyGroup>(oldMainActivity, android.R.layout.simple_spinner_item, android.R.id.text1, account.getBuddyGroupList());
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		
@@ -550,9 +551,9 @@ public final class DialogUtils {
 				Buddy clone = ServiceUtils.cloneBuddy(buddy);
 				clone.setGroupId(((BuddyGroup)spinner.getSelectedItem()).getId());
 				try {
-					mainActivity.getCoreService().addBuddy(clone);
+					oldMainActivity.getCoreService().addBuddy(clone);
 				} catch (RemoteException e) {
-					mainActivity.onRemoteException(e);
+					oldMainActivity.onRemoteException(e);
 				}
 				dialog.dismiss();
 			}
@@ -568,18 +569,18 @@ public final class DialogUtils {
 		showBrandedDialog(builder.create());
 	}
 
-	public static void showConfirmRemoveGroupDialog(final BuddyGroup group, final MainActivity mainActivity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+	public static void showConfirmRemoveGroupDialog(final BuddyGroup group, final OldMainActivity oldMainActivity) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(oldMainActivity);
 		builder.setTitle(R.string.confirm_delete);
-		builder.setMessage(mainActivity.getString(R.string.are_you_sure_you_want_to_remove, group.getName()));
+		builder.setMessage(oldMainActivity.getString(R.string.are_you_sure_you_want_to_remove, group.getName()));
 		builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				try {
-					mainActivity.getCoreService().removeGroup(group);;
+					oldMainActivity.getCoreService().removeGroup(group);;
 				} catch (RemoteException e) {
-					mainActivity.onRemoteException(e);
+					oldMainActivity.onRemoteException(e);
 				}
 				dialog.dismiss();
 			}
@@ -594,11 +595,11 @@ public final class DialogUtils {
 		showBrandedDialog(builder.create());
 	}
 
-	public static void showAddOrRenameGroupDialog(final BuddyGroup group, final Account account, final MainActivity mainActivity) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
-		builder.setTitle(mainActivity.getString(R.string.add_group));
+	public static void showAddOrRenameGroupDialog(final BuddyGroup group, final Account account, final OldMainActivity oldMainActivity) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(oldMainActivity);
+		builder.setTitle(oldMainActivity.getString(R.string.add_group));
 	
-		final EditText editor = new EditText(mainActivity);
+		final EditText editor = new EditText(oldMainActivity);
 		editor.setLayoutParams(new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		
 		if (group != null) {
@@ -612,7 +613,7 @@ public final class DialogUtils {
 				String text = editor.getText().toString().trim();
 				
 				if (TextUtils.isEmpty(text)) {
-					ViewUtils.showAlertToast(mainActivity, android.R.drawable.ic_dialog_alert, R.string.X_cannot_be_empty, mainActivity.getString(R.string.name));
+					ViewUtils.showAlertToast(oldMainActivity, android.R.drawable.ic_dialog_alert, R.string.X_cannot_be_empty, oldMainActivity.getString(R.string.name));
 					return;
 				}
 				
@@ -620,18 +621,18 @@ public final class DialogUtils {
 					BuddyGroup clone = ServiceUtils.cloneBuddyGroup(group);
 					clone.setName(text);
 					try {
-						mainActivity.getCoreService().renameGroup(clone);
+						oldMainActivity.getCoreService().renameGroup(clone);
 					} catch (RemoteException e) {
-						mainActivity.onRemoteException(e);
+						oldMainActivity.onRemoteException(e);
 					}
 				} else {
 					BuddyGroup group = new BuddyGroup(null, account.getProtocolUid(), account.getServiceId());
 					group.setName(text);
 					
 					try {
-						mainActivity.getCoreService().addGroup(group);
+						oldMainActivity.getCoreService().addGroup(group);
 					} catch (RemoteException e) {
-						mainActivity.onRemoteException(e);
+						oldMainActivity.onRemoteException(e);
 					}
 				}
 				dialog.dismiss();
@@ -659,7 +660,7 @@ public final class DialogUtils {
 		return false;
 	}
 
-	public static void showAcceptDeclineDialog(final Message message, Buddy buddy, final MainActivity activity) {
+	public static void showAcceptDeclineDialog(final Message message, Buddy buddy, final OldMainActivity activity) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setCancelable(true);
 		

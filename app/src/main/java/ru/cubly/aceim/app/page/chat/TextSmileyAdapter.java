@@ -1,18 +1,19 @@
 package ru.cubly.aceim.app.page.chat;
 
+import android.content.Context;
+import android.view.Gravity;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.dataentity.SmileyResources;
 import ru.cubly.aceim.app.utils.ViewUtils;
 import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter;
-import android.content.Context;
-import android.view.Gravity;
-import android.widget.TextView;
 
 public class TextSmileyAdapter extends SingleViewAdapter<String, TextView> {
 
@@ -26,7 +27,7 @@ public class TextSmileyAdapter extends SingleViewAdapter<String, TextView> {
 		view.setGravity(Gravity.CENTER);
 	}
 
-	public static final TextSmileyAdapter fromTypedArray(MainActivity activity){
+	public static final TextSmileyAdapter fromTypedArray(OldMainActivity activity){
 		Set<String> set = new HashSet<String>();
 		
 		for (SmileyResources smr : activity.getSmileysManager().getUnmanagedSmileys()) {

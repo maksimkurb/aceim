@@ -1,8 +1,9 @@
 package ru.cubly.aceim.api.dataentity;
 
-import ru.cubly.aceim.api.IProtocol;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.IProtocol;
 
 /**
  * Action being applied to item. See {@link IProtocol#buddyAction(ItemAction, Buddy)} for usage example.

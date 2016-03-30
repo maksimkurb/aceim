@@ -1,10 +1,11 @@
 package ru.cubly.aceim.app.utils;
 
-import ru.cubly.aceim.api.utils.Logger;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
+import ru.cubly.aceim.api.utils.Logger;
 
 public abstract class PluginsManager {
 	

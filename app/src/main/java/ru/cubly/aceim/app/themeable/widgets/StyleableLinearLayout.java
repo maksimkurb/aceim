@@ -1,9 +1,10 @@
 package ru.cubly.aceim.app.themeable.widgets;
 
-import ru.cubly.aceim.app.AceIMActivity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
+import ru.cubly.aceim.app.AceIMActivity;
 
 public class StyleableLinearLayout extends LinearLayout {
 

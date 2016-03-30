@@ -1,13 +1,14 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import ru.cubly.aceim.api.dataentity.tkv.FileTKV;
 import ru.cubly.aceim.api.dataentity.tkv.ListTKV;
 import ru.cubly.aceim.api.dataentity.tkv.StringTKV;
+import ru.cubly.aceim.api.dataentity.tkv.StringTKV.ContentType;
 import ru.cubly.aceim.api.dataentity.tkv.TKV;
 import ru.cubly.aceim.api.dataentity.tkv.ToggleTKV;
-import ru.cubly.aceim.api.dataentity.tkv.StringTKV.ContentType;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Entity used for protocol accounts creation and management. A set of protocol options defines preferences required for account (username, password, login host etc etc).

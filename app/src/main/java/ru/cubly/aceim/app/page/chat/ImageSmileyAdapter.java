@@ -1,5 +1,11 @@
 package ru.cubly.aceim.app.page.chat;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,11 +17,6 @@ import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.app.dataentity.SmileyResources;
 import ru.cubly.aceim.app.utils.ViewUtils;
 import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 
 public class ImageSmileyAdapter extends SingleViewAdapter<Drawable, ImageView> {
 	

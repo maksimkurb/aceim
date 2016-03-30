@@ -1,5 +1,12 @@
 package ru.cubly.aceim.app.page.contactlist;
 
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.ConnectionState;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;
@@ -8,12 +15,6 @@ import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.ProtocolResources;
 import ru.cubly.aceim.app.utils.ViewUtils;
 import ru.cubly.aceim.app.widgets.bottombar.ContactListBottomBar;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ExpandableListView;
 
 public class PlainContactList extends ContactList {
 
@@ -34,7 +35,7 @@ public class PlainContactList extends ContactList {
 
 	@Override
 	protected View onCreateContactListView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.plain_contact_list, group, false);
+		View view = inflater.inflate(R.layout.page_contact_list_plain, group, false);
 		mListView = (ExpandableListView) view.findViewById(R.id.grid);
 		mListView.setAdapter(getAdapter());
 		mBottomBar = (ContactListBottomBar) view.findViewById(R.id.bottom_bar);

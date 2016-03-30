@@ -1,5 +1,13 @@
 package ru.cubly.aceim.app.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Xml;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
+
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,10 +18,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Executors;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
 
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
@@ -28,9 +32,6 @@ import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
 import ru.cubly.aceim.app.dataentity.AccountService;
 import ru.cubly.aceim.app.service.ServiceUtils;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Xml;
 
 public final class DataStorage {
 

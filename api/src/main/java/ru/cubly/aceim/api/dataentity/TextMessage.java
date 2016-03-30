@@ -1,12 +1,13 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import ru.cubly.aceim.api.dataentity.tkv.MessageAttachment;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Text message/

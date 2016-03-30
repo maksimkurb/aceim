@@ -1,5 +1,8 @@
 package ru.cubly.aceim.app.page.contactlist;
 
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +14,7 @@ import ru.cubly.aceim.api.dataentity.MultiChatRoom;
 import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.R;
 import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
@@ -19,8 +22,6 @@ import ru.cubly.aceim.app.dataentity.ProtocolResources;
 import ru.cubly.aceim.app.utils.LinqRules.BuddyLinqRule;
 import ru.cubly.aceim.app.utils.linq.KindaLinq;
 import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 
 final class ContactListUpdater {
 
@@ -75,7 +76,7 @@ final class ContactListUpdater {
 		return g;
 	}
 
-	public void onContactListUpdated(Account account, MainActivity activity) {
+	public void onContactListUpdated(Account account, OldMainActivity activity) {
 		SharedPreferences p = activity.getSharedPreferences(account.getAccountId(), 0);
 
 		showGroups = p.getBoolean(AccountOptionKeys.SHOW_GROUPS.name(), Boolean.parseBoolean(activity.getString(R.string.default_show_groups)));

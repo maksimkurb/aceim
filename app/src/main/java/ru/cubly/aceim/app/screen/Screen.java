@@ -1,20 +1,5 @@
 package ru.cubly.aceim.app.screen;
 
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
-import ru.cubly.aceim.app.screen.pano.PanoScreen;
-import ru.cubly.aceim.app.screen.simple.SimpleScreen;
-import ru.cubly.aceim.app.screen.tablet.TabletScreen;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.contactlist.ContactList;
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -27,23 +12,39 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.contactlist.ContactList;
+import ru.cubly.aceim.app.screen.pano.PanoScreen;
+import ru.cubly.aceim.app.screen.simple.SimpleScreen;
+import ru.cubly.aceim.app.screen.tablet.TabletScreen;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
+
 @SuppressLint("InlinedApi")
 public abstract class Screen extends FrameLayout {
 	
 	private final boolean requireDirtyMenuButtonHack;
 	
-	public Screen(MainActivity activity) {
+	public Screen(OldMainActivity activity) {
 		super(activity);
 		
 		ViewUtils.setWallpaperMode(getActivity(), this);
 		requireDirtyMenuButtonHack = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && (activity.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_XLARGE) > 0;
 	}
 
-	public MainActivity getActivity() {
-		return (MainActivity) getContext();
+	public OldMainActivity getActivity() {
+		return (OldMainActivity) getContext();
 	}
 
-	public static final Screen getScreen(MainActivity activity) {
+	public static final Screen getScreen(OldMainActivity activity) {
 		//TODO rename key_view_type
 		String screenName = activity.getSharedPreferences(Constants.SHARED_PREFERENCES_GLOBAL, 0)
 				.getString(GlobalOptionKeys.SCREEN_TYPE.name(), activity.getString(R.string.default_screen_type));

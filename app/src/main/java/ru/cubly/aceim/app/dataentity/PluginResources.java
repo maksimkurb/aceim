@@ -1,10 +1,5 @@
 package ru.cubly.aceim.app.dataentity;
 
-import java.lang.reflect.Constructor;
-
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.AceImException.AceImExceptionReason;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -12,6 +7,12 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.lang.reflect.Constructor;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.AceImException.AceImExceptionReason;
 
 public abstract class PluginResources implements Parcelable {
 

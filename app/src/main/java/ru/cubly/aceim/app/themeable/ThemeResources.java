@@ -1,5 +1,7 @@
 package ru.cubly.aceim.app.themeable;
 
+import android.content.Context;
+
 import java.lang.reflect.Constructor;
 
 import ru.cubly.aceim.api.utils.Logger;
@@ -10,7 +12,6 @@ import ru.cubly.aceim.app.themeable.dataentity.ContactListPlainItemThemeResource
 import ru.cubly.aceim.app.themeable.dataentity.HistoryMessageItemThemeResource;
 import ru.cubly.aceim.app.themeable.dataentity.TabThemeResource;
 import ru.cubly.aceim.app.themeable.dataentity.ThemeResource;
-import android.content.Context;
 
 public class ThemeResources {
 	//Layouts

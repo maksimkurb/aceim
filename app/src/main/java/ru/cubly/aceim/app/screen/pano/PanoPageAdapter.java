@@ -1,11 +1,5 @@
 package ru.cubly.aceim.app.screen.pano;
 
-import java.util.List;
-
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,11 +7,18 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
+import java.util.List;
+
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.widgets.pageselector.PageAdapter;
+
 class PanoPageAdapter extends PageAdapter {
 	
 	private int mPageWidth;
 	
-	public PanoPageAdapter(MainActivity activity, OnClickListener tabClickListener, List<Page> pages) {
+	public PanoPageAdapter(OldMainActivity activity, OnClickListener tabClickListener, List<Page> pages) {
 		super(activity, tabClickListener, activity.getThemesManager().getViewResources().getTabItemLayout(), pages);
 	}
 	

@@ -1,12 +1,13 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.accounts.Account;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Comparator;
 
 import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.utils.Utils;
-import android.accounts.Account;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Buddy entity.

@@ -1,13 +1,5 @@
 package ru.cubly.aceim.app.page.about;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.PluginResources;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.page.Page;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,6 +11,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.androidquery.AQuery;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.PluginResources;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.Page;
 
 public class About extends Page {
 
@@ -34,7 +35,7 @@ public class About extends Page {
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View v = inflater.inflate(R.layout.about, null);
+		View v = inflater.inflate(R.layout.page_about, null);
 		try {
 			List<PluginResources> resources = new ArrayList<PluginResources>();
 			
@@ -56,7 +57,7 @@ public class About extends Page {
 	private final class ProtocolAdapter extends ArrayAdapter<PluginResources> {
 
 		public ProtocolAdapter(Context context, List<PluginResources> objects) {
-			super(context, R.layout.about_plugin_item, R.id.label, objects);
+			super(context, R.layout.item_about_plugin, R.id.label, objects);
 		}
 		
 		@Override

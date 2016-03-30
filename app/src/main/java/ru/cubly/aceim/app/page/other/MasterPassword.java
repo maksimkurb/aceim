@@ -1,10 +1,5 @@
 package ru.cubly.aceim.app.page.other;
 
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,6 +10,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public final class MasterPassword extends Page {
 	
@@ -51,7 +52,7 @@ public final class MasterPassword extends Page {
 	
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View v = inflater.inflate(R.layout.master_password, group, false);
+		View v = inflater.inflate(R.layout.page_master_password, group, false);
 		
 		mTitle = (TextView) v.findViewById(R.id.title);
 		mProceedButton = (BottomBarButton) v.findViewById(R.id.proceed);

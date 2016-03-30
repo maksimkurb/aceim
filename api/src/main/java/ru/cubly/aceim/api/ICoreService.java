@@ -2,13 +2,13 @@ package ru.cubly.aceim.api;
 
 import java.util.List;
 
-import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.BuddyGroup;
 import ru.cubly.aceim.api.dataentity.ConnectionState;
 import ru.cubly.aceim.api.dataentity.FileProgress;
 import ru.cubly.aceim.api.dataentity.InputFormFeature;
 import ru.cubly.aceim.api.dataentity.ItemAction;
+import ru.cubly.aceim.api.dataentity.Message;
 import ru.cubly.aceim.api.dataentity.MessageAckState;
 import ru.cubly.aceim.api.dataentity.MultiChatRoom;
 import ru.cubly.aceim.api.dataentity.OnlineInfo;

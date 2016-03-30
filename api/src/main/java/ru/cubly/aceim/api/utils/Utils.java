@@ -1,5 +1,14 @@
 package ru.cubly.aceim.api.utils;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -19,14 +28,6 @@ import ru.cubly.aceim.api.dataentity.Buddy;
 import ru.cubly.aceim.api.dataentity.Entity;
 import ru.cubly.aceim.api.dataentity.ListFeature;
 import ru.cubly.aceim.api.service.ApiConstants;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * A utility class with useful methods.

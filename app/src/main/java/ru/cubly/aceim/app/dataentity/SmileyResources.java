@@ -1,16 +1,17 @@
 package ru.cubly.aceim.app.dataentity;
 
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.AceImException.AceImExceptionReason;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.AceImException.AceImExceptionReason;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
 
 public class SmileyResources extends PluginResources {
 	
@@ -61,7 +62,7 @@ public class SmileyResources extends PluginResources {
 		}
 	};
 	
-	public static SmileyResources mySmileys(MainActivity activity) {
+	public static SmileyResources mySmileys(OldMainActivity activity) {
 		Resources r = activity.getResources();
 		String[] names = r.getStringArray(R.array.smiley_names);		
 		int[] values = getValuesInternal(r, R.array.smiley_values);

@@ -1,41 +1,5 @@
 package ru.cubly.aceim.app.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.concurrent.Executors;
-
-import ru.cubly.expandablegrid.ExpandableGridView;
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.api.dataentity.Message;
-import ru.cubly.aceim.api.dataentity.MultiChatRoom;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.preference.OptionsActivity;
-import ru.cubly.aceim.app.themeable.dataentity.ContactThemeResource;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.about.About;
-import ru.cubly.aceim.app.page.chat.Chat;
-import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
-import ru.cubly.aceim.app.page.history.History;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -68,6 +32,43 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.BitmapAjaxCallback;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.Executors;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.api.dataentity.Message;
+import ru.cubly.aceim.api.dataentity.MultiChatRoom;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.about.About;
+import ru.cubly.aceim.app.page.chat.Chat;
+import ru.cubly.aceim.app.page.chat.ChatMessageHolder;
+import ru.cubly.aceim.app.page.history.History;
+import ru.cubly.aceim.app.preference.OptionsActivity;
+import ru.cubly.aceim.app.themeable.dataentity.ContactThemeResource;
+import ru.cubly.expandablegrid.ExpandableGridView;
 
 public final class ViewUtils {
 
@@ -390,8 +391,8 @@ public final class ViewUtils {
 		}
 	}
 
-	public static Intent getOpenOptionsIntent(MainActivity mainActivity, Account account) {
-		Intent i = new Intent(mainActivity, OptionsActivity.class);
+	public static Intent getOpenOptionsIntent(OldMainActivity oldMainActivity, Account account) {
+		Intent i = new Intent(oldMainActivity, OptionsActivity.class);
 		if (account != null) {
 			i.putExtra(Constants.INTENT_EXTRA_ACCOUNT, account);
 		}

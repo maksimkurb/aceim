@@ -1,13 +1,14 @@
 package ru.cubly.aceim.app.widgets.bottombar;
 
-import ru.cubly.aceim.app.AceIMActivity;
-import ru.cubly.aceim.app.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
+
+import ru.cubly.aceim.app.AceIMActivity;
+import ru.cubly.aceim.app.R;
 
 public class BottomBarButton extends ImageButton {
 	

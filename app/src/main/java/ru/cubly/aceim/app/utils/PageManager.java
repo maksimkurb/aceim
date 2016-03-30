@@ -1,26 +1,27 @@
 package ru.cubly.aceim.app.utils;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.page.NoPage;
 import ru.cubly.aceim.app.page.Page;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
 public final class PageManager {
 	
 	private NoPage mNoPageView = null;
 	private final int mPageHolderId;
 	private Page mSelectedPage;
-	private final MainActivity mActivity;
+	private final OldMainActivity mActivity;
 	private final List<Page> mPages = new ArrayList<Page>();
 
-	public PageManager(int pageHolderId, MainActivity activity) {
+	public PageManager(int pageHolderId, OldMainActivity activity) {
 		this.mPageHolderId = pageHolderId;
 		this.mActivity = activity;
 		

@@ -1,15 +1,5 @@
 package ru.cubly.aceim.app.page.utils;
 
-import ru.cubly.aceim.api.dataentity.FileProgress;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFileProgress;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.utils.Utilities.Util;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -22,6 +12,17 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import ru.cubly.aceim.api.dataentity.FileProgress;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFileProgress;
+import ru.cubly.aceim.app.page.utils.Utilities.Util;
+import ru.cubly.aceim.app.utils.DialogUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public class AccountImporter implements Util, IHasFilePicker, IHasFileProgress {
 	
@@ -43,12 +44,12 @@ public class AccountImporter implements Util, IHasFilePicker, IHasFileProgress {
 		}
 	};
 
-	private final MainActivity mActivity;
+	private final OldMainActivity mActivity;
 	
 	private BottomBarButton button;
 	private ProgressBar progress;
 
-	public AccountImporter(MainActivity activity) {
+	public AccountImporter(OldMainActivity activity) {
 		this.mActivity = activity;
 	}
 
@@ -70,7 +71,7 @@ public class AccountImporter implements Util, IHasFilePicker, IHasFileProgress {
 	}
 
 	@Override
-	public void onFilePicked(final ActivityResult result, final MainActivity activity) {
+	public void onFilePicked(final ActivityResult result, final OldMainActivity activity) {
 		if (result.getRequestCode() != REQUEST_CODE || result.getResultCode() != Activity.RESULT_OK) {
 			return;
 		}

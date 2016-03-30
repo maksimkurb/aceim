@@ -1,9 +1,10 @@
 package ru.cubly.aceim.app.widgets.pageselector;
 
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.HorizontalListView;
 import android.content.Context;
 import android.util.AttributeSet;
+
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.widgets.HorizontalListView;
 
 public class TabSelector extends HorizontalListView implements PageSelector {
 	

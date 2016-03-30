@@ -1,13 +1,14 @@
 package ru.cubly.aceim.app.themeable.dataentity;
 
-import org.xmlpull.v1.XmlPullParser;
-
-import ru.cubly.aceim.api.utils.Logger;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView.LayoutParams;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import ru.cubly.aceim.api.utils.Logger;
 
 public abstract class ThemeResource {
 

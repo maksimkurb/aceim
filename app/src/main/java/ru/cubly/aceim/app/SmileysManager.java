@@ -1,5 +1,11 @@
 package ru.cubly.aceim.app;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.widget.EditText;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,13 +20,8 @@ import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.dataentity.SmileyResources;
-import ru.cubly.aceim.app.utils.PluginsManager;
 import ru.cubly.aceim.app.page.chat.SmileysPopup;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.widget.EditText;
+import ru.cubly.aceim.app.utils.PluginsManager;
 
 public class SmileysManager extends PluginsManager {
 	
@@ -29,7 +30,7 @@ public class SmileysManager extends PluginsManager {
 	
 	private static SmileysPopup sSmileysPopup;
 	
-	public SmileysManager(MainActivity activity) {
+	public SmileysManager(OldMainActivity activity) {
 		super(activity, ApiConstants.ACTION_PLUGIN_SMILEYS);
 		mResources.put(activity.getPackageName(), SmileyResources.mySmileys(activity));
 		initSmileys();
@@ -74,8 +75,8 @@ public class SmileysManager extends PluginsManager {
 		removeSmileyPackage(packageName);
 	}
 
-	protected MainActivity getMainActivity() {
-		return (MainActivity) mContext;
+	protected OldMainActivity getMainActivity() {
+		return (OldMainActivity) mContext;
 	}
 
 	/**
@@ -115,7 +116,7 @@ public class SmileysManager extends PluginsManager {
 	 */
 	public SmileysPopup getSmileysPopup() {
 		if (sSmileysPopup == null) {
-			sSmileysPopup = new SmileysPopup((MainActivity) mContext);
+			sSmileysPopup = new SmileysPopup((OldMainActivity) mContext);
 		}
 		
 		return sSmileysPopup;

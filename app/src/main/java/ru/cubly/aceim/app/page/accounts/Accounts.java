@@ -1,15 +1,5 @@
 package ru.cubly.aceim.app.page.accounts;
 
-import java.util.List;
-
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.listeners.IHasAccountList;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.utils.linq.KindaLinq;
-import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
-import ru.cubly.aceim.app.page.Page;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -21,9 +11,20 @@ import android.view.ViewGroup;
 
 import com.androidquery.AQuery;
 
+import java.util.List;
+
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.listeners.IHasAccountList;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.utils.linq.KindaLinq;
+import ru.cubly.aceim.app.utils.linq.KindaLinqRule;
+
 public class Accounts extends Page implements IHasAccountList {
-	
-	private final List<Account> mAccounts;	
+
+	private final List<Account> mAccounts;
 	private AccountsAdapter mAdapter;
 	
 	public Accounts(List<Account> accounts) {
@@ -34,7 +35,7 @@ public class Accounts extends Page implements IHasAccountList {
 		
 		@Override
 		public void onClick(View v) {
-			Page.addAccountEditorPage(((MainActivity)getMainActivity()).getScreen(), null);
+			Page.addAccountEditorPage(((OldMainActivity)getMainActivity()).getScreen(), null);
 		}
 	};
 	
@@ -57,9 +58,9 @@ public class Accounts extends Page implements IHasAccountList {
 	
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.accounts, group, false);
+		View view = inflater.inflate(R.layout.page_accounts, group, false);
 		
-		mAdapter = new AccountsAdapter((MainActivity) getMainActivity(), mAccounts);
+		mAdapter = new AccountsAdapter((OldMainActivity) getMainActivity(), mAccounts);
 		
 		AQuery aq = new AQuery(view);
 		

@@ -1,15 +1,5 @@
 package ru.cubly.aceim.app.page.chat;
 
-import java.util.Collections;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.BuddyGroup;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.themeable.dataentity.ContactListItemThemeResource;
-import ru.cubly.aceim.app.utils.ViewUtils;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +9,17 @@ import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import java.util.Collections;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.BuddyGroup;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.themeable.dataentity.ContactListItemThemeResource;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public class ChatParticipantsAdapter extends BaseExpandableListAdapter {
 	
@@ -113,7 +114,7 @@ public class ChatParticipantsAdapter extends BaseExpandableListAdapter {
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, final ViewGroup parent) {
 		Buddy buddy = (Buddy) getChild(groupPosition, childPosition);
 		
-		MainActivity activity = (MainActivity)parent.getContext();	
+		OldMainActivity activity = (OldMainActivity)parent.getContext();
 		ContactListItemThemeResource itemResource = activity.getThemesManager().getViewResources().getGridItemLayout();
 
 		View view = convertView;
@@ -128,7 +129,7 @@ public class ChatParticipantsAdapter extends BaseExpandableListAdapter {
 				
 				@Override
 				public void onClick(View v) {
-					MainActivity activity = (MainActivity) parent.getContext();
+					OldMainActivity activity = (OldMainActivity) parent.getContext();
 					Buddy buddy = (Buddy) v.getTag();
 					activity.onChatRequest(buddy);
 				}
@@ -138,7 +139,7 @@ public class ChatParticipantsAdapter extends BaseExpandableListAdapter {
 
 				@Override
 				public boolean onLongClick(View v) {
-					MainActivity activity = (MainActivity) parent.getContext();
+					OldMainActivity activity = (OldMainActivity) parent.getContext();
 					Buddy buddy = (Buddy) v.getTag();
 					activity.onBuddyContextMenuRequest(buddy, mResources);
 					return true;

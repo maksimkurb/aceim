@@ -1,5 +1,8 @@
 package ru.cubly.aceim.app.dataentity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,8 +23,6 @@ import ru.cubly.aceim.api.service.ApiConstants;
 import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.api.utils.Utils;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Account view part, for using in views.
@@ -229,7 +230,7 @@ public class Account extends Entity implements EntityWithID {
 	 * @param keepNotInList
 	 *            do not remove buddies that marked with
 	 *            {@link AccountService#NOT_IN_LIST_GROUP_ID}, as well as group
-	 *            chat records.
+	 *            page_chat records.
 	 */
 	public void removeAllBuddies(boolean keepNotInList) {
 		undeletable = new LinkedList<Buddy>();

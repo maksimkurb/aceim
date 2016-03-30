@@ -1,11 +1,12 @@
 package ru.cubly.aceim.api.dataentity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.lang.reflect.Constructor;
 
 import ru.cubly.aceim.api.IProtocol;
 import ru.cubly.aceim.api.utils.Logger;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Base class for different types of protocol service features.

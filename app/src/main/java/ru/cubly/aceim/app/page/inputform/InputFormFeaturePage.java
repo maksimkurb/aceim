@@ -1,29 +1,5 @@
 package ru.cubly.aceim.app.page.inputform;
 
-import java.io.File;
-import java.util.Calendar;
-
-import ru.cubly.aceim.api.dataentity.InputFormFeature;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.dataentity.tkv.FileTKV;
-import ru.cubly.aceim.api.dataentity.tkv.ListTKV;
-import ru.cubly.aceim.api.dataentity.tkv.StringTKV;
-import ru.cubly.aceim.api.dataentity.tkv.TKV;
-import ru.cubly.aceim.api.dataentity.tkv.ToggleTKV;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
-import ru.cubly.aceim.app.widgets.pickers.CalendarPickerListenerBase;
-import ru.cubly.aceim.app.widgets.pickers.DatePickerListener;
-import ru.cubly.aceim.app.widgets.pickers.FilePickerListener;
-import ru.cubly.aceim.app.widgets.pickers.PickerListenerBase.ValuePickedListener;
-import ru.cubly.aceim.app.widgets.pickers.TimePickerListener;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -45,6 +21,31 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.io.File;
+import java.util.Calendar;
+
+import ru.cubly.aceim.api.dataentity.InputFormFeature;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.dataentity.tkv.FileTKV;
+import ru.cubly.aceim.api.dataentity.tkv.ListTKV;
+import ru.cubly.aceim.api.dataentity.tkv.StringTKV;
+import ru.cubly.aceim.api.dataentity.tkv.TKV;
+import ru.cubly.aceim.api.dataentity.tkv.ToggleTKV;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
+import ru.cubly.aceim.app.widgets.pickers.CalendarPickerListenerBase;
+import ru.cubly.aceim.app.widgets.pickers.DatePickerListener;
+import ru.cubly.aceim.app.widgets.pickers.FilePickerListener;
+import ru.cubly.aceim.app.widgets.pickers.PickerListenerBase.ValuePickedListener;
+import ru.cubly.aceim.app.widgets.pickers.TimePickerListener;
 
 @SuppressLint("InlinedApi")
 public class InputFormFeaturePage extends Page implements IHasFilePicker {
@@ -125,7 +126,7 @@ public class InputFormFeaturePage extends Page implements IHasFilePicker {
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
-		View view = inflater.inflate(R.layout.input_form, null);
+		View view = inflater.inflate(R.layout.page_input_form, null);
 		mContainer = (LinearLayout) view.findViewById(R.id.container);
 		mRunBtn = (BottomBarButton) view.findViewById(R.id.run);
 		
@@ -290,7 +291,7 @@ public class InputFormFeaturePage extends Page implements IHasFilePicker {
 	}
 
 	@Override
-	public void onFilePicked(ActivityResult result, MainActivity activity) {
+	public void onFilePicked(ActivityResult result, OldMainActivity activity) {
 		switch (result.getResultCode()) {
 		case Activity.RESULT_OK:
 			for (int i = 0; i < mFeature.getEditorFields().length; i++) {

@@ -4,6 +4,23 @@ package ru.cubly.aceim.app.utils;
  * 
  * Native LED controller is created by apangin ( http://apangin.habrahabr.ru/ )
  */
+
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Vibrator;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
+import android.text.TextUtils;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.HashMap;
@@ -24,29 +41,14 @@ import ru.cubly.aceim.api.utils.Logger;
 import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
 import ru.cubly.aceim.app.AceImException;
 import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
+import ru.cubly.aceim.app.OldMainActivity;
 import ru.cubly.aceim.app.R;
 import ru.cubly.aceim.app.dataentity.Account;
 import ru.cubly.aceim.app.dataentity.AccountService;
-import ru.cubly.aceim.app.service.CoreService;
 import ru.cubly.aceim.app.page.Page;
 import ru.cubly.aceim.app.page.chat.Chat;
 import ru.cubly.aceim.app.page.contactlist.ContactList;
-import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Vibrator;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.text.TextUtils;
+import ru.cubly.aceim.app.service.CoreService;
 
 public class Notificator {
 
@@ -87,14 +89,14 @@ public class Notificator {
 		builder.setSubText(account.getSafeName());
 		builder.setWhen(System.currentTimeMillis());
 		
-		Intent notificationIntent = new Intent(mContext, MainActivity.class);
+		Intent notificationIntent = new Intent(mContext, OldMainActivity.class);
 		fillMessageIntent(notificationIntent, account, buddy, message);
 		
 		String text; 
 		
 		if (message instanceof TextMessage) {
 			notificationIntent.putExtra(Constants.INTENT_EXTRA_CLASS_NAME, Chat.class.getName());
-			notificationIntent.setData(ViewUtils.stringAsIntentDataUri(MainActivity.class.getName()));
+			notificationIntent.setData(ViewUtils.stringAsIntentDataUri(OldMainActivity.class.getName()));
 			
 			text = message.getText();
 			
@@ -233,7 +235,7 @@ public class Notificator {
 				contentText.append(mContext.getString(R.string.offline));
 			}
 			
-			Intent notificationIntent = new Intent(mContext, MainActivity.class);
+			Intent notificationIntent = new Intent(mContext, OldMainActivity.class);
 			PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, notificationIntent, 0);
 			builder.setOngoing(true);
 			builder.setSmallIcon(R.drawable.ic_logo_notification);
@@ -281,7 +283,7 @@ public class Notificator {
 			builder.setSmallIcon(unreads > 0 ? R.drawable.ic_message : ViewUtils.getAccountStatusIcon(mContext, account));
 			builder.setNumber(unreads);
 
-			Intent notificationIntent = new Intent(mContext, MainActivity.class);
+			Intent notificationIntent = new Intent(mContext, OldMainActivity.class);
 			String notificatorId = Page.getPageIdForEntityWithId(ContactList.class, account);
 			notificationIntent.setData((Uri.parse(URI_PROTOCOL + notificatorId)));
 			PendingIntent contentIntent = PendingIntent.getActivity(mContext, account.getServiceId(), notificationIntent, 0);
@@ -321,7 +323,7 @@ public class Notificator {
 			} else {
 				builder.setAutoCancel(false);
 				
-				Intent intent = new Intent(mContext, MainActivity.class);
+				Intent intent = new Intent(mContext, OldMainActivity.class);
 				PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 				builder.setContentIntent(contentIntent);
 				
@@ -335,7 +337,7 @@ public class Notificator {
 				}
 			}
 		} else {
-			Intent intent = new Intent(mContext, MainActivity.class);
+			Intent intent = new Intent(mContext, OldMainActivity.class);
 			PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 			builder.setContentIntent(contentIntent);
 			

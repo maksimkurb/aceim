@@ -1,43 +1,5 @@
 package ru.cubly.aceim.app.page.contactlist;
 
-import java.io.File;
-import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-
-import ru.cubly.aceim.api.dataentity.ActionFeature;
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.api.dataentity.FileMessage;
-import ru.cubly.aceim.api.dataentity.InputFormFeature;
-import ru.cubly.aceim.api.dataentity.ListFeature;
-import ru.cubly.aceim.api.dataentity.Message;
-import ru.cubly.aceim.api.dataentity.MessageAckState;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeatureTarget;
-import ru.cubly.aceim.api.dataentity.ToggleFeature;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.api.utils.Utils;
-import ru.cubly.aceim.app.AceImException;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.dataentity.listeners.IHasAccount;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
-import ru.cubly.aceim.app.service.ICoreService;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.utils.DialogUtils;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.page.chat.Chat;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -64,6 +26,45 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.androidquery.AQuery;
+
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+
+import ru.cubly.aceim.api.dataentity.ActionFeature;
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.api.dataentity.FileMessage;
+import ru.cubly.aceim.api.dataentity.InputFormFeature;
+import ru.cubly.aceim.api.dataentity.ListFeature;
+import ru.cubly.aceim.api.dataentity.Message;
+import ru.cubly.aceim.api.dataentity.MessageAckState;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeatureTarget;
+import ru.cubly.aceim.api.dataentity.ToggleFeature;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
+import ru.cubly.aceim.api.utils.Utils;
+import ru.cubly.aceim.app.AceImException;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.dataentity.listeners.IHasAccount;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.page.chat.Chat;
+import ru.cubly.aceim.app.service.ICoreService;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.utils.DialogUtils;
+import ru.cubly.aceim.app.utils.ViewUtils;
 
 public abstract class ContactList extends Page implements IHasAccount, IHasMessages, IHasFilePicker {
 
@@ -154,7 +155,7 @@ public abstract class ContactList extends Page implements IHasAccount, IHasMessa
 	}
 
 	@SuppressWarnings("unchecked")
-	public static ContactList createContactListPage(MainActivity activity, Account account) {
+	public static ContactList createContactListPage(OldMainActivity activity, Account account) {
 		if (account == null) {
 			return null;
 		}
@@ -399,7 +400,7 @@ public abstract class ContactList extends Page implements IHasAccount, IHasMessa
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		MainActivity activity = getMainActivity();
+		OldMainActivity activity = getMainActivity();
 		ICoreService service = activity.getCoreService();
 		
 		try {
@@ -527,7 +528,7 @@ public abstract class ContactList extends Page implements IHasAccount, IHasMessa
 	}	
 
 	@Override
-	public void onFilePicked(ActivityResult result, MainActivity activity) {
+	public void onFilePicked(ActivityResult result, OldMainActivity activity) {
 		if (result.getRequestCode() != ServiceUtils.getRequestCodeForActivity(mAccount.getEntityId().hashCode()) || result.getResultCode() != Activity.RESULT_OK) {
 			return;
 		}

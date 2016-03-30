@@ -1,19 +1,5 @@
 package ru.cubly.aceim.app.page.chat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import ru.cubly.aceim.app.Constants;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
-import ru.cubly.aceim.app.dataentity.SmileyResources;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.widgets.HorizontalListView;
-import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter;
-import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter.OnSingleViewAdapterItemClickListener;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.Gravity;
@@ -29,11 +15,26 @@ import android.widget.GridView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import ru.cubly.aceim.app.Constants;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.dataentity.GlobalOptionKeys;
+import ru.cubly.aceim.app.dataentity.SmileyResources;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.widgets.HorizontalListView;
+import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter;
+import ru.cubly.aceim.app.widgets.adapters.SingleViewAdapter.OnSingleViewAdapterItemClickListener;
+
 public class SmileysPopup {
 
 	private int mSoftKbHeight = 0;
 
-	private final MainActivity mActivity;
+	private final OldMainActivity mActivity;
 
 	private PopupWindow mPopupWindow;
 	private EditText mEditor;
@@ -89,7 +90,7 @@ public class SmileysPopup {
 		}
 	};
 
-	public SmileysPopup(MainActivity activity) {
+	public SmileysPopup(OldMainActivity activity) {
 		this.mActivity = activity;
 
 		mDontDrawSmileys = activity.getSharedPreferences(Constants.SHARED_PREFERENCES_GLOBAL, 0).getBoolean(GlobalOptionKeys.TEXT_SMILEYS.name(), Boolean.parseBoolean(activity.getString(R.string.default_text_smilies)));

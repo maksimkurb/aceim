@@ -1,10 +1,11 @@
 package ru.cubly.aceim.api.dataentity.tkv;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.lang.reflect.Constructor;
 
 import ru.cubly.aceim.api.utils.Logger;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * General item entity for input forms. 

@@ -1,8 +1,9 @@
 package ru.cubly.aceim.api.dataentity;
 
-import ru.cubly.aceim.api.utils.Utils;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.utils.Utils;
 
 /**
  * Abstract message entity.

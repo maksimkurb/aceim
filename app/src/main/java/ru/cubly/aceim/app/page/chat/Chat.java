@@ -1,50 +1,5 @@
 package ru.cubly.aceim.app.page.chat;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import ru.cubly.aceim.api.dataentity.Buddy;
-import ru.cubly.aceim.api.dataentity.BuddyGroup;
-import ru.cubly.aceim.api.dataentity.ConnectionState;
-import ru.cubly.aceim.api.dataentity.FileInfo;
-import ru.cubly.aceim.api.dataentity.FileMessage;
-import ru.cubly.aceim.api.dataentity.Message;
-import ru.cubly.aceim.api.dataentity.MessageAckState;
-import ru.cubly.aceim.api.dataentity.MultiChatRoom;
-import ru.cubly.aceim.api.dataentity.OnlineInfo;
-import ru.cubly.aceim.api.dataentity.TextMessage;
-import ru.cubly.aceim.api.service.ApiConstants;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
-import ru.cubly.aceim.api.utils.Utils;
-import ru.cubly.aceim.app.MainActivity;
-import ru.cubly.aceim.app.R;
-import ru.cubly.aceim.app.SmileysManager;
-import ru.cubly.aceim.app.dataentity.Account;
-import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
-import ru.cubly.aceim.app.dataentity.ActivityResult;
-import ru.cubly.aceim.app.dataentity.ProtocolResources;
-import ru.cubly.aceim.app.dataentity.listeners.IHasAccount;
-import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
-import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
-import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
-import ru.cubly.aceim.app.service.ServiceUtils;
-import ru.cubly.aceim.app.themeable.dataentity.ContactThemeResource;
-import ru.cubly.aceim.app.utils.LinqRules.BuddyLinqRule;
-import ru.cubly.aceim.app.utils.ViewUtils;
-import ru.cubly.aceim.app.utils.linq.KindaLinq;
-import ru.cubly.aceim.app.page.Page;
-import ru.cubly.aceim.app.widgets.ResizeableRelativeLayout;
-import ru.cubly.aceim.app.widgets.ResizeableRelativeLayout.OnResizeListener;
-import ru.cubly.aceim.app.widgets.adapters.MessagesAdapter;
-import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -83,6 +38,52 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.androidquery.AQuery;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import ru.cubly.aceim.api.dataentity.Buddy;
+import ru.cubly.aceim.api.dataentity.BuddyGroup;
+import ru.cubly.aceim.api.dataentity.ConnectionState;
+import ru.cubly.aceim.api.dataentity.FileInfo;
+import ru.cubly.aceim.api.dataentity.FileMessage;
+import ru.cubly.aceim.api.dataentity.Message;
+import ru.cubly.aceim.api.dataentity.MessageAckState;
+import ru.cubly.aceim.api.dataentity.MultiChatRoom;
+import ru.cubly.aceim.api.dataentity.OnlineInfo;
+import ru.cubly.aceim.api.dataentity.TextMessage;
+import ru.cubly.aceim.api.service.ApiConstants;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.api.utils.Logger.LoggerLevel;
+import ru.cubly.aceim.api.utils.Utils;
+import ru.cubly.aceim.app.OldMainActivity;
+import ru.cubly.aceim.app.R;
+import ru.cubly.aceim.app.SmileysManager;
+import ru.cubly.aceim.app.dataentity.Account;
+import ru.cubly.aceim.app.dataentity.AccountOptionKeys;
+import ru.cubly.aceim.app.dataentity.ActivityResult;
+import ru.cubly.aceim.app.dataentity.ProtocolResources;
+import ru.cubly.aceim.app.dataentity.listeners.IHasAccount;
+import ru.cubly.aceim.app.dataentity.listeners.IHasBuddy;
+import ru.cubly.aceim.app.dataentity.listeners.IHasFilePicker;
+import ru.cubly.aceim.app.dataentity.listeners.IHasMessages;
+import ru.cubly.aceim.app.page.Page;
+import ru.cubly.aceim.app.service.ServiceUtils;
+import ru.cubly.aceim.app.themeable.dataentity.ContactThemeResource;
+import ru.cubly.aceim.app.utils.LinqRules.BuddyLinqRule;
+import ru.cubly.aceim.app.utils.ViewUtils;
+import ru.cubly.aceim.app.utils.linq.KindaLinq;
+import ru.cubly.aceim.app.widgets.ResizeableRelativeLayout;
+import ru.cubly.aceim.app.widgets.ResizeableRelativeLayout.OnResizeListener;
+import ru.cubly.aceim.app.widgets.adapters.MessagesAdapter;
+import ru.cubly.aceim.app.widgets.bottombar.BottomBarButton;
 
 public class Chat extends Page implements IHasBuddy, IHasAccount, IHasMessages, IHasFilePicker {
 	
@@ -330,7 +331,7 @@ public class Chat extends Page implements IHasBuddy, IHasAccount, IHasMessages, 
 	public View createView(LayoutInflater inflater, ViewGroup group, Bundle saved) {
 		initVariables();
 		
-		View view = inflater.inflate(R.layout.chat, group, false);
+		View view = inflater.inflate(R.layout.page_chat, group, false);
 		mEditor = (EditText) view.findViewById(R.id.editor);
 		
 		mSendBtn = (BottomBarButton) view.findViewById(R.id.send);
@@ -582,7 +583,7 @@ public class Chat extends Page implements IHasBuddy, IHasAccount, IHasMessages, 
 		if (b != null) {
 			mBuddy.merge(b);
 		} else {
-			//this buddy has been removed - closing this chat
+			//this buddy has been removed - closing this page_chat
 			removeMe();
 		}
 	}
@@ -685,7 +686,7 @@ public class Chat extends Page implements IHasBuddy, IHasAccount, IHasMessages, 
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		MainActivity a = getMainActivity();
+		OldMainActivity a = getMainActivity();
 		switch(item.getItemId()) {
 		case R.id.menuitem_close:
 			removeMe();
@@ -815,7 +816,7 @@ public class Chat extends Page implements IHasBuddy, IHasAccount, IHasMessages, 
 	}
 
 	@Override
-	public void onFilePicked(ActivityResult result, MainActivity activity) {
+	public void onFilePicked(ActivityResult result, OldMainActivity activity) {
 		if (result.getRequestCode() != ServiceUtils.getRequestCodeForActivity(mBuddy.getEntityId().hashCode()) || result.getResultCode() != Activity.RESULT_OK) {
 			return;
 		}

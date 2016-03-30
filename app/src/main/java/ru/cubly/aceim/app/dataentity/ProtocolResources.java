@@ -1,11 +1,12 @@
 package ru.cubly.aceim.app.dataentity;
 
-import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
-import ru.cubly.aceim.api.utils.Logger;
-import ru.cubly.aceim.app.service.ProtocolService;
 import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import ru.cubly.aceim.api.dataentity.ProtocolServiceFeature;
+import ru.cubly.aceim.api.utils.Logger;
+import ru.cubly.aceim.app.service.ProtocolService;
 
 public class ProtocolResources extends PluginResources {
 
